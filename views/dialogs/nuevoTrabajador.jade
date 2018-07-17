@@ -1,0 +1,14 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Nuevo Trabajador
+			span(flex)
+			md-button(ng-click="close()")
+				md-icon clear
+	form.md-padding(layout="row" ng-submit="submit(trabajador)")
+		md-input-container(flex)
+			label Nombre del Trabajador
+			input(ng-model="trabajador.nombre" required)
+		md-button.md-raised(type="submit")
+			md-icon save
+

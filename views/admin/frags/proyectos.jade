@@ -1,0 +1,40 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedProyecto" 
+		md-search-text-change="ctrl.BuscarProyectoChange(ctrl.searchTextProyecto)" 
+		md-search-text="ctrl.searchTextProyecto" 
+		md-selected-item-change="ctrl.ProyectoSeleccionadoChange(item)" 
+		md-items="item in ctrl.proyectos.items" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Proyecto" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.proyectos.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="proyecto in ctrl.proyectos.items | filter : ctrl.searchTextProyecto")
+			.md-list-item-text
+				strong {{proyecto.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="proyecto({id:proyecto.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="proyecto.eliminar($index)")
+							md-icon delete
+			md-divider
+	h3(style="text-align: center") Pagina: {{ctrl.proyectos.pagina}}
+	.paginacion(layout="row")
+		md-button(ng-click="ctrl.proyectos.anterior()" ng-if="ctrl.proyectos.pagina !==1" flex)
+			md-icon navigate_before
+		md-button(ng-click="ctrl.proyectos.siguiente()" ng-if="ctrl.proyectos.pagina === ctrl.proyectos.pagina" flex)
+			md-icon navigate_next

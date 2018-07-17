@@ -1,0 +1,47 @@
+mobile = "(max-width: 800px)"
+
+transition(duracion, delay)
+	-webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+animation(animation, duration = 1s, delay = 0s)
+	-webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition all duration ease-in-out
+	-moz-transition all duration ease-in-out
+	-o-transition all duration ease-in-out
+	transition all duration ease-in-out
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+@keyframes destello
+	0%
+		width 0%
+		opacity 1
+	60%
+		opacity 1
+	90%
+		width 200%
+
+	100%
+		width 0%
+		opacity 0
+
+*
+	box-sizing border-box
+	font-family Cabin
+
+
+md-grid-list
+	md-grid-tile
+		background-repeat no-repeat
+		background-size cover
+		background-position center
+
+main
+	position relative
+	min-height 100vh
+	width 100%
+	

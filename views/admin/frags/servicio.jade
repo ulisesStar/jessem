@@ -1,0 +1,50 @@
+.servicio(layout="row" layout-xs="column")
+	md-card.servicio-content(flex="50")
+		md-toolbar
+			.md-toolbar-tools
+				h4 Información Básica
+				span(flex)
+				md-button(ng-click="ctrl.servicio.habilitarEdicion()")
+					md-icon(ng-show="!ctrl.infomuestra") edit
+					md-icon(ng-show="ctrl.infomuestra") clear
+		md-card-content
+			.AntesEdicion(ng-show= "!ctrl.infomuestra")
+				h1 Nombre:
+				h3 {{ctrl.servicio.item.nombre}}
+				md-divider
+				h1 Descripcion:
+				.infoBasica-content(ng-bind-html="ctrl.servicio.item.descripcion")
+			.DespuesEdicion(ng-show= "ctrl.infomuestra")
+				form.servicio-form(ng-submit="ctrl.servicio.editarServicio(ctrl.servicio.item)" layout="column")
+					.info(layout="row" layout-xs="column" layout-align="space-between center")
+						md-input-container(flex)
+							md-icon(md-colors="{color: 'blue'}")  &#xE873;
+							label Nombre del Servicio
+							input(ng-model="ctrl.servicio.item.nombre")
+					.descripcion-container
+						.titulo(layout="row")
+							md-icon(md-colors="{color: 'blue'}") &#xe22b;
+							p Descripción del Servicio
+						text-angular(ng-model="ctrl.servicio.item.descripcion")
+					md-button.servicio.info(type="submit")
+						md-icon save
+	md-card.subservicios-container(flex="50")
+			md-toolbar
+				.md-toolbar-tools
+					h4 Subservicios
+			md-card-content
+				.subservicios-content
+					form(ng-submit="ctrl.subservicios.agregarSubservicio(subservicio)" layout="row")
+						md-select(ng-model="subservicio" placeholder="Selecciona una subservicio" required flex)
+							md-option(ng-value="subservicio" ng-repeat="subservicio in ctrl.subservicios.items") {{subservicio.nombre}}
+						md-button(type="submit")
+							md-icon add
+				md-virtual-repeat-container#vertical-container
+					.repeated-item(layout="row" md-virtual-repeat='subservicio in ctrl.subservicios.agregados' flex)
+						.texto(flex)
+							strong {{subservicio.nombre}}
+						.botones-container(layout-align="end end")
+							md-button.md-fab.botones(md-colors="{background: 'green'}" ng-click="ctrl.subservicios.mandarAsubservicio(subservicio)")
+								md-icon visibility
+							md-button.md-fab.botones(md-colors="{background: 'red'}" ng-click="ctrl.subservicios.eliminarSubservicio($index, subservicio)")
+								md-icon delete
