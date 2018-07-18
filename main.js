@@ -40,12 +40,12 @@ morgan('combined', {skip: function (req, res) { return res.statusCode < 400 }});
 
 //- Rutas
 app.use('/', require('./http/routes'));
+app.use('/', require('./http/rutas/Items'));
 app.use('/', require('./http/rutas/Imagenes'));
 app.use('/', require('./http/rutas/Proyectos'));
 app.use('/', require('./http/rutas/Servicios'));
 app.use('/', require('./http/rutas/Subservicios'));
 app.use('/', require('./http/rutas/Trabajador'));
-
 
 
 app.use(lessMiddleware(__dirname + '/assets'));

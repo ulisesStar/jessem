@@ -19,6 +19,11 @@ route.route('/data/servicio/subservicios/:idSubservicio')
 route.route('/data/servicio/obtenerSub/:idServicio')
 		.get(x.obtenerSub)
 
+route.route('/data/servicio/proyectos/:idServicio/:idProyecto')
+	.get(x.Agregarproyecto)
+	.delete(x.eliminarProyecto);
+
+
 
 module.exports = route;
 

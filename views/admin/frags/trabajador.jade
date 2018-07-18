@@ -1,0 +1,54 @@
+.trabajador
+	md-card.trabajador-content(flex)
+		md-toolbar
+			.md-toolbar-tools
+				h4 Información Básica
+				span(flex)
+				md-button(ng-click="ctrl.trabajador.habilitarEdicion()")
+					md-icon(ng-show="!ctrl.infomuestra") edit
+					md-icon(ng-show="ctrl.infomuestra") clear
+		md-card-content
+			.AntesEdicion(ng-show= "!ctrl.infomuestra")
+				h1 Nombre:
+				h3 {{ctrl.trabajador.item.nombre}}
+				md-divider
+				h1 Puesto:
+				h3 {{ctrl.trabajador.item.puesto}}
+				md-divider
+				h1 Descripcion:
+				.infoBasica-content(ng-bind-html="ctrl.trabajador.item.descripcion")
+			.DespuesEdicion(ng-show= "ctrl.infomuestra")
+				form.trabajador-form(ng-submit="ctrl.trabajador.editarTrabajador(ctrl.trabajador.item)" layout="column")
+					.info(layout="row" layout-xs="column" layout-align="space-between center")
+						md-input-container(flex)
+							md-icon(md-colors="{color: 'blue'}")  &#xE873;
+							label Nombre del Trabajador
+							input(ng-model="ctrl.trabajador.item.nombre")
+						md-input-container(flex)
+							md-icon(md-colors="{color: 'blue'}")  &#xE873;
+							label Puesto que desempeña
+							input(ng-model="ctrl.trabajador.item.puesto")
+					.descripcion-container
+						.titulo(layout="row")
+							md-icon(md-colors="{color: 'blue'}") &#xe22b;
+							p Descripción del Proyecto
+						text-angular(ng-model="ctrl.trabajador.item.descripcion")
+					md-button.trabajador.info(type="submit")
+						md-icon save
+md-card.imagenes-trabajador
+	md-toolbar
+		.md-toolbar-tools
+			h4 Foto del Trabajador
+	md-card-content
+		.contenedor(layout="row")
+			form(ng-submit="ctrl.imagenes.guardarImagen(imagen)" flex ="50")
+				.imagen-container(layout-align="center center")
+					.dropify-container(ng-init="Dropify()" flex)
+						input.dropify(type="file" data-default-file="Foto del Trabajador" ng-model="imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
+				md-button.imagen-button(type="submit" md-colors="{background: 'green'}" flex)
+					md-icon save
+			md-grid-list(md-cols="4" md-row-height="1:1" flex ="50")
+				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.imagenes.items" style="background-image:url({{imagen.imagen}})")
+					md-grid-tile-footer(layout-align="center center")
+						md-button(ng-click="ctrl.imagenes.eliminarImagen(imagen.id,$index)")
+							md-icon delete

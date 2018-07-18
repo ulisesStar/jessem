@@ -31,6 +31,10 @@ md-grid-list md-grid-tile {
 .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon {
   color: #64b5f6;
 }
+.servicio {
+  display: flex;
+  flex-direction: row;
+}
 .servicio .servicio-content .md-toolbar-tools h4 {
   font-size: 2vw;
 }
@@ -56,6 +60,102 @@ md-grid-list md-grid-tile {
   font-size: 1.3vw;
 }
 .servicio .AntesEdicion .infoBasica-content p {
+  font-size: 1.3vw;
+  text-align: justify;
+}
+.subservicio {
+  display: flex;
+  flex-direction: row;
+}
+.subservicio .subservicio-content .md-toolbar-tools h4 {
+  font-size: 2vw;
+}
+.subservicio .DespuesEdicion .subservicio-form .descripcion-container text-angular .ta-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.subservicio .DespuesEdicion .subservicio-form .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon {
+  color: #64b5f6;
+}
+.subservicio .DespuesEdicion .subservicio-form .descripcion-container .titulo md-icon {
+  margin-left: 0;
+  margin: 13px;
+}
+.subservicio .DespuesEdicion .subservicio.info {
+  background-color: #1a57a5 !important;
+}
+.subservicio .AntesEdicion h1 {
+  font-size: 2vw;
+}
+.subservicio .AntesEdicion h3 {
+  font-size: 1.3vw;
+}
+.subservicio .AntesEdicion .infoBasica-content p {
+  font-size: 1.3vw;
+  text-align: justify;
+}
+.proyecto {
+  display: flex;
+  flex-direction: row;
+}
+.proyecto .proyecto-content .md-toolbar-tools h4 {
+  font-size: 2vw;
+}
+.proyecto .DespuesEdicion .proyecto-form .descripcion-container text-angular .ta-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.proyecto .DespuesEdicion .proyecto-form .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon {
+  color: #64b5f6;
+}
+.proyecto .DespuesEdicion .proyecto-form .descripcion-container .titulo md-icon {
+  margin-left: 0;
+  margin: 13px;
+}
+.proyecto .DespuesEdicion .proyecto.info {
+  background-color: #1a57a5 !important;
+}
+.proyecto .AntesEdicion h1 {
+  font-size: 2vw;
+}
+.proyecto .AntesEdicion h3 {
+  font-size: 1.3vw;
+}
+.proyecto .AntesEdicion .infoBasica-content p {
+  font-size: 1.3vw;
+  text-align: justify;
+}
+.trabajador {
+  display: flex;
+  flex-direction: row;
+}
+.trabajador .trabajador-content .md-toolbar-tools h4 {
+  font-size: 2vw;
+}
+.trabajador .DespuesEdicion .trabajador-form .descripcion-container text-angular .ta-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.trabajador .DespuesEdicion .trabajador-form .descripcion-container text-angular .ta-toolbar .ta-button-group button md-icon {
+  color: #64b5f6;
+}
+.trabajador .DespuesEdicion .trabajador-form .descripcion-container .titulo md-icon {
+  margin-left: 0;
+  margin: 13px;
+}
+.trabajador .DespuesEdicion .trabajador.info {
+  background-color: #1a57a5 !important;
+}
+.trabajador .AntesEdicion h1 {
+  font-size: 2vw;
+}
+.trabajador .AntesEdicion h3 {
+  font-size: 1.3vw;
+}
+.trabajador .AntesEdicion .infoBasica-content p {
   font-size: 1.3vw;
   text-align: justify;
 }

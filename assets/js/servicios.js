@@ -19,7 +19,10 @@ app.service('Imagen', function() {
     this.one = id => axios('/data/imagen/' + id)
     this.editar = imagen => axios.put('/data/imagen/' + imagen.id, imagen)
     this.eliminar = id => axios.delete('/data/imagen/' + id)
-    
+    this.obtenerDeservicios =  idServicio => axios('/data/imagen/obtenerDeservicios/' + idServicio)
+    this.obtenerDesubservicios =  idSubservicio => axios('/data/imagen/obtenerDesubservicios/' + idSubservicio)
+    this.obtenerDeproyectos =  idProyecto=> axios('/data/imagen/obtenerDeproyectos/' + idProyecto)
+    this.obtenerDetrabajadores =  idTrabajador => axios('/data/imagen/obtenerDetrabajadores/' + idTrabajador)
 
 });
 
@@ -45,6 +48,8 @@ app.service('Servicio', function() {
     this.paginacion = function(items, pagina) { return axios('/data/servicio/paginacion/' + items + '/' + pagina ) }
     this.agregarSub = subservicio => axios.put('/data/servicio/subservicios/'+ subservicio.id, subservicio)
     this.obtenerSub = idServicio => axios('/data/servicio/obtenerSub/' + idServicio)
+    this.agregarAproyectos = servicio => axios('/data/servicio/proyectos/' + servicio.idServicio + '/' + servicio.idProyecto)
+    this.eliminarDeproyectos = servicio => axios.delete('/data/servicio/proyectos/' + servicio.idServicio + '/' + servicio.idProyecto)
 
 });
 
@@ -56,5 +61,17 @@ app.service('Proyecto', function() {
     this.editar = proyecto => axios.put('/data/proyecto/' + proyecto.id, proyecto)
     this.eliminar = id => axios.delete('/data/proyecto/' + id)
     this.paginacion = function(items, pagina) { return axios('/data/proyecto/paginacion/' + items + '/' + pagina ) }
+    this.obtenerServicios = idProyecto => axios('/data/proyecto/proyectosXservicio/'+ idProyecto)
+
+});
+
+app.service('Item', function() {
+
+    this.crear = item => axios.post('/data/item', item)
+    this.obtener = () => axios('/data/item')
+    this.one = id => axios('/data/item/' + id)
+    this.editar = item => axios.put('/data/item/' + item.id, item)
+    this.eliminar = id => axios.delete('/data/item/' + id)
+    this.obtenerDeSubservicios = idSubservicio => axios('/data/servicio/obtenerDeSubservicios/' + idSubservicio)
 
 });

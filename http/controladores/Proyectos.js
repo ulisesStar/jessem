@@ -29,3 +29,7 @@ ex.paginacion = (req, res, next) =>{
 		pagina:Math.round(result.count/items),
 		items: _.chunk(result.rows, items)[pagina-1]});
 		res.status(200).jsonp(response);})}
+
+ex.obtenerServicios = (req, res, next) => proyecto.findById(req.params.idProyecto)
+    .then(proyecto => proyecto.getServicio())
+    .then(result => res.status(200).json(result))

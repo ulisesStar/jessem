@@ -10,5 +10,18 @@ route.route('/data/imagen/:id')
         .put(x.update)
         .delete(x.delete);
 
+route.route('/data/imagen/obtenerDeservicios/:idServicio')
+        .get(x.obtenerDeservicios);
+
+route.route('/data/imagen/obtenerDesubservicios/:idSubservicio')
+        .get(x.obtenerDesubservicios);
+
+route.route('/data/imagen/obtenerDeproyectos/:idProyecto')
+        .get(x.obtenerDeproyectos);
+
+route.route('/data/imagen/obtenerDetrabajadores/:idTrabajador')
+        .get(x.obtenerDetrabajadores);
+        
+
 module.exports = route;
 

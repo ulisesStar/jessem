@@ -13,5 +13,8 @@ route.route('/data/proyecto/:id')
 route.route('/data/proyecto/paginacion/:Items/:Pagina')
 		.get(x.paginacion);
 
+route.route('/data/proyecto/proyectosXservicio/:idProyecto')
+	.get(x.obtenerServicios);
+
 module.exports = route;
 

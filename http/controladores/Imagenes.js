@@ -19,3 +19,15 @@ ex.read =  (req, res, next) => req.params.id ?
     :
     imagen.findAll()
     .then(response => res.status(200).jsonp(response))
+
+ex.obtenerDeservicios = (req, res, next) => imagen.findAll( { where: { idServicio: req.params.idServicio } } )
+    .then(result => res.status(200).json(result))
+
+ex.obtenerDesubservicios = (req, res, next) => imagen.findAll( { where: { idSubservicio: req.params.idSubservicio } } )
+    .then(result => res.status(200).json(result))
+
+ex.obtenerDeproyectos = (req, res, next) => imagen.findAll( { where: { idProyecto: req.params.idProyecto } } )
+    .then(result => res.status(200).json(result))
+
+ex.obtenerDetrabajadores = (req, res, next) => imagen.findAll( { where: { idTrabajador: req.params.idTrabajador } } )
+    .then(result => res.status(200).json(result))

@@ -1,4 +1,4 @@
-.servicio(layout="row" layout-xs="column")
+.servicio
 	md-card.servicio-content(flex="50")
 		md-toolbar
 			.md-toolbar-tools
@@ -35,7 +35,7 @@
 			md-card-content
 				.subservicios-content
 					form(ng-submit="ctrl.subservicios.agregarSubservicio(subservicio)" layout="row")
-						md-select(ng-model="subservicio" placeholder="Selecciona una subservicio" required flex)
+						md-select(ng-model="subservicio" placeholder="Selecciona un subservicio" required flex)
 							md-option(ng-value="subservicio" ng-repeat="subservicio in ctrl.subservicios.items") {{subservicio.nombre}}
 						md-button(type="submit")
 							md-icon add
@@ -48,3 +48,21 @@
 								md-icon visibility
 							md-button.md-fab.botones(md-colors="{background: 'red'}" ng-click="ctrl.subservicios.eliminarSubservicio($index, subservicio)")
 								md-icon delete
+md-card.imagenes-servicio
+	md-toolbar
+		.md-toolbar-tools
+			h4 Imagenes del Servicio
+	md-card-content
+		.contenedor(layout="row")
+			form(ng-submit="ctrl.imagenes.guardarImagen(imagen)" flex ="50")
+				.imagen-container(layout-align="center center")
+					.dropify-container(ng-init="Dropify()" flex)
+						input.dropify(type="file" data-default-file="Imagen del Servicio" ng-model="imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
+				md-button.imagen-button(type="submit" md-colors="{background: 'green'}" flex)
+					md-icon save
+			md-grid-list(md-cols="4" md-row-height="1:1" flex ="50")
+				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.imagenes.items" style="background-image:url({{imagen.imagen}})")
+					md-grid-tile-footer(layout-align="center center")
+						md-button(ng-click="ctrl.imagenes.eliminarImagen(imagen.id,$index)")
+							md-icon delete
+			

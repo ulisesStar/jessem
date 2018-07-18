@@ -4,6 +4,7 @@ var imagen  = require('./modelos/Imagenes')(conector);
 var subservicio  = require('./modelos/Subservicios')(conector);
 var servicio  = require('./modelos/Servicios')(conector);
 var proyecto  = require('./modelos/Proyectos')(conector);
+var item  = require('./modelos/Items')(conector);
 
 
 imagen.belongsTo(trabajador, {foreignKey: 'idTrabajador', as: 'Trabajador'}); 
@@ -21,8 +22,11 @@ proyecto.hasMany(imagen, {foreignKey: 'idProyecto', as: 'Imagen'});
 subservicio.belongsTo(servicio, {foreignKey: 'idServicio', as: 'Subservicio'}); 
 servicio.hasMany(subservicio, {foreignKey: 'idServicio', as: 'Subservicio'});
 
-proyecto.belongsTo(servicio, {foreignKey: 'idServicio', as: 'Proyecto'}); 
-servicio.hasMany(proyecto, {foreignKey: 'idServicio', as: 'Proyecto'});
+item.belongsTo(subservicio, {foreignKey: 'idSubservicio', as: 'Subservicio'}); 
+subservicio.hasMany(item, {foreignKey: 'idSubservicio', as: 'Item'});
+
+proyecto.belongsToMany(servicio, { as: 'Servicio', through:'proyecto_servicio', foreignKey:'id_proyecto'});
+servicio.belongsToMany(proyecto, { as: 'Proyecto', through:'proyecto_servicio', foreignKey:'id_servicio'});
 
 
 module.exports.trabajador = trabajador;
@@ -30,3 +34,4 @@ module.exports.imagen = imagen;
 module.exports.subservicio = subservicio;
 module.exports.servicio = servicio;
 module.exports.proyecto = proyecto;
+module.exports.item = item;

@@ -1,5 +1,5 @@
 const db = require('../relaciones');
-var { servicio, subservicio } = db;
+var { servicio, subservicio} = db;
 var _ = require('lodash')
 
 var ex = module.exports = {};
@@ -34,4 +34,12 @@ ex.agregarSub = (req, res, next) => subservicio.update(req.body, { where: { id: 
     .then(response => res.status(200).jsonp(response))
 
 ex.obtenerSub = (req, res, next) => subservicio.findAll( { where: { idServicio: req.params.idServicio } } )
+    .then(result => res.status(200).json(result))
+
+ex.Agregarproyecto = (req, res, next) => servicio.findById(req.params.idServicio)
+    .then(servicio => servicio.addProyecto(req.params.idProyecto))
+    .then(result => res.status(200).json(result))
+
+ex.eliminarProyecto = (req, res, next) => servicio.findById(req.params.idServicio)
+    .then(servicio => servicio.removeProyecto(req.params.idProyecto))
     .then(result => res.status(200).json(result))
