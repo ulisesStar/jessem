@@ -27,9 +27,9 @@ md-card
 						md-icon more_vert
 				md-toolbar
 					md-fab-actions(layout="row")
-						md-button(md-colors="{background: 'green'}" ui-sref="trabajador({id:trabajador.id})")
+						md-button(style="min-width: inherit; min-height: inherit; width: 60px; height: 35px; margin-top: 15px;" md-colors="{background: 'green'}" ui-sref="trabajador({id:trabajador.id})")
 							md-icon edit
-						md-button(md-colors="{background: 'red'}" ng-click="trabajador.eliminar($index)")
+						md-button(style="min-width: inherit; min-height: inherit; width: 60px; height: 35px; margin-top: 15px;" md-colors="{background: 'red'}" ng-click="trabajador.eliminar($index)")
 							md-icon delete
 			md-divider
 	h3(style="text-align: center") Pagina: {{ctrl.trabajadores.pagina}}

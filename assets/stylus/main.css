@@ -12,67 +12,68 @@ main {
   min-height: 100vh;
   width: 100%;
 }
-@-moz-keyframes destello {
-  0% {
-    width: 0%;
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  90% {
-    width: 200%;
-  }
-  100% {
-    width: 0%;
-    opacity: 0;
-  }
+.nav {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: #008000;
 }
-@-webkit-keyframes destello {
-  0% {
-    width: 0%;
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  90% {
-    width: 200%;
-  }
-  100% {
-    width: 0%;
-    opacity: 0;
-  }
+.nav .nav-content {
+  display: flex;
+  flex-direction: row;
 }
-@-o-keyframes destello {
-  0% {
-    width: 0%;
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  90% {
-    width: 200%;
-  }
-  100% {
-    width: 0%;
-    opacity: 0;
-  }
+.nav .nav-content .logo {
+  cursor: pointer;
 }
-@keyframes destello {
-  0% {
-    width: 0%;
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  90% {
-    width: 200%;
-  }
-  100% {
-    width: 0%;
-    opacity: 0;
-  }
+.nav .nav-content .logo:focus {
+  outline: 0px;
+}
+.nav .nav-content .menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .nav-content .menu .md-button {
+  min-width: inherit;
+  min-height: inherit;
+  width: 80px;
+  height: 30px;
+}
+.nav .nav-content .menu .md-button span {
+  font-size: 12px;
+}
+.footer .footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer .footer-content .navegacion .botones .md-button {
+  min-width: inherit;
+  min-height: inherit;
+  width: 80px;
+  height: 30px;
+}
+.footer .footer-content .navegacion .botones .md-button span {
+  font-size: 11px;
+}
+.footer .footer-content .navegacion .derechos {
+  margin-top: 20px;
+}
+.footer .footer-content .navegacion .derechos p {
+  font-size: 9px;
+}
+.footer .footer-content .forma-contactos {
+  display: flex;
+  flex-direction: row;
+}
+.footer .footer-content .forma-contactos md-icon {
+  margin: 0;
+  margin-top: 10px;
+  font-size: inherit !important;
+}
+.footer .footer-content .forma-contactos p {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 11px;
 }

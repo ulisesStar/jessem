@@ -1,5 +1,5 @@
 .servicio
-	md-card.servicio-content(flex="50")
+	md-card.servicio-content
 		md-toolbar
 			.md-toolbar-tools
 				h4 Información Básica
@@ -16,7 +16,7 @@
 				.infoBasica-content(ng-bind-html="ctrl.servicio.item.descripcion")
 			.DespuesEdicion(ng-show= "ctrl.infomuestra")
 				form.servicio-form(ng-submit="ctrl.servicio.editarServicio(ctrl.servicio.item)" layout="column")
-					.info(layout="row" layout-xs="column" layout-align="space-between center")
+					.info(layout="row" layout-align="space-between center")
 						md-input-container(flex)
 							md-icon(md-colors="{color: 'blue'}")  &#xE873;
 							label Nombre del Servicio
@@ -28,7 +28,7 @@
 						text-angular(ng-model="ctrl.servicio.item.descripcion")
 					md-button.servicio.info(type="submit")
 						md-icon save
-	md-card.subservicios-container(flex="50")
+	md-card.subservicios-container
 			md-toolbar
 				.md-toolbar-tools
 					h4 Subservicios
@@ -41,7 +41,7 @@
 							md-icon add
 				md-virtual-repeat-container#vertical-container
 					.repeated-item(layout="row" md-virtual-repeat='subservicio in ctrl.subservicios.agregados' flex)
-						.texto(flex)
+						.texto
 							strong {{subservicio.nombre}}
 						.botones-container(layout-align="end end")
 							md-button.md-fab.botones(md-colors="{background: 'green'}" ng-click="ctrl.subservicios.mandarAsubservicio(subservicio)")
@@ -60,7 +60,7 @@ md-card.imagenes-servicio
 						input.dropify(type="file" data-default-file="Imagen del Servicio" ng-model="imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
 				md-button.imagen-button(type="submit" md-colors="{background: 'green'}" flex)
 					md-icon save
-			md-grid-list(md-cols="4" md-row-height="1:1" flex ="50")
+			md-grid-list(md-cols="4" md-cols-sm="1" md-cols-xs="1" md-row-height="1:1" flex ="50")
 				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.imagenes.items" style="background-image:url({{imagen.imagen}})")
 					md-grid-tile-footer(layout-align="center center")
 						md-button(ng-click="ctrl.imagenes.eliminarImagen(imagen.id,$index)")

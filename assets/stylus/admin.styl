@@ -1,5 +1,17 @@
 mobile = "(max-width: 800px)"
+verde = #96c784
 
+
+*
+	font-family Cabin
+
+.admin
+	md-toolbar
+		.md-toolbar-tools
+			p
+				@media mobile
+					max-width 50%
+					font-size 16px
 md-grid-list
 	md-grid-tile
 		background-repeat no-repeat
@@ -12,7 +24,7 @@ md-grid-list
 		width 300px
 		height 235px !important
 .imagen-container
-	width 100%
+	width 95%
 	height 24%
 	.dropify-container
 		width 96%
@@ -24,28 +36,64 @@ md-grid-list
 	&.touch-fallback
 		.dropify-clear
 			bottom 8px !important
-.descripcion-container
-	text-angular
-		.ta-toolbar
-			display flex
-			flex-direction row
-			flex-wrap wrap
-			.ta-button-group
-				button
-					md-icon 
-						color #64B5F6
+			
+.home
+	@media mobile
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		
+	.home-content
+		display flex
+		justify-content center
+		align-items center
+		@media mobile
+			flex-direction column
+			justify-content center
+			align-items center
+			width 100%
+		h1
+			@media mobile
+				font-size 40px
+				font-weight 400
+				margin 0
+		p
+			@media mobile
+				font-size 22px
+			
 .servicio
 	display flex
 	flex-direction row
+	@media mobile
+		flex-direction column
 	.servicio-content
+		width 50%
+		@media mobile
+			max-width inherit !important
+			width 96%
 		.md-toolbar-tools
 			h4
-				font-size 2vw
+				font-size 25px
+				margin 0
+				font-weight 100
+				@media mobile 
+					font-size 22px
 	.DespuesEdicion
 		.servicio-form
+			display flex
+			justify-content center
+			align-items center
+			.info
+				width 100%
 			.descripcion-container
+				@media mobile
+					margin-bottom 30px
+				height 50%
 				text-angular
 					.ta-toolbar
+						@media mobile 
+							display none !important
 						display flex
 						flex-direction row
 						flex-wrap wrap
@@ -58,32 +106,141 @@ md-grid-list
 						margin-left 0
 						margin 13px
 		.servicio.info
-			background-color #1a57a5 !important
+			@media mobile
+				margin-top 30px
+			min-width inherit
+			min-height inherit
+			width 200px
+			height 49px
+			background-color verde
 				
 
 	.AntesEdicion
 		h1
-			font-size 2vw
+			margin 0
+			font-size 20px
+			@media mobile
+				font-size 15px
 		h3
-			font-size 1.3vw
+			font-size 16px
+			@media mobile
+				font-size 15px
+			
 		.infoBasica-content
 			p 
-				font-size 1.3vw
+				font-size 16px
 				text-align justify
+				@media mobile
+					font-size 14px
+				
+	.subservicios-container
+		width 50%
+		@media mobile
+			max-width inherit !important
+			width 96%
+		.md-toolbar-tools
+			h4
+				margin 0
+				font-size 25px
+				font-weight 100
+				@media mobile
+					font-size 20px
+		.subservicios-content
+			.md-button
+				background-color verde
+				min-width inherit
+				min-height inherit
+				width 65px
+				height 34px
+				margin-top 17px
+				@media mobile
+					width 60px
+					height 31px
+					margin-top 21px
+		.md-virtual-repeat-container
+			.repeated-item
+				.texto
+					width 100%
+					display flex
+					justify-content flex-start
+					align-items center
+					@media mobile
+						width 55%
+					strong
+						@media mobile
+							font-size 20px
+				.botones-container
+					display flex
+					flex-direction row
+					.md-button.md-fab
+						min-width inherit
+						min-height inherit
+						width 50px
+						height 50px
+						@media mobile
+							min-width inherit
+							min-height inherit
+							width 40px
+							height 40px
+.imagenes-servicio
+	.md-toolbar-tools
+		h4
+			margin 0
+			font-size 25px
+			font-weight 100 
+			@media mobile
+				font-size 20px
+	.contenedor
+		@media mobile
+			flex-direction column
+		form
+			@media mobile
+				max-width 100% !important
+			.imagen-container
+				@media mobile
+					height 30% !important
+			.md-button
+				margin-top 25px
+				@media mobile
+					margin-top 22px
+		md-grid-list
+			max-width 100% 
+		
+
 				
 
 .subservicio
 	display flex
 	flex-direction row
+	@media mobile
+			flex-direction column
 	.subservicio-content
+		width 50%
+		@media mobile
+			max-width inherit !important
+			width 95%
 		.md-toolbar-tools
 			h4
-				font-size 2vw
+				font-size 25px
+				margin 0
+				font-weight 100
+				@media mobile
+					font-size 22px
 	.DespuesEdicion
 		.subservicio-form
+			display flex
+			justify-content center
+			align-items center
+			.info
+				width 100%
 			.descripcion-container
+				height 50%
+				@media mobile
+					margin-bottom 30px
 				text-angular
 					.ta-toolbar
+						@media mobile
+							display none !important
 						display flex
 						flex-direction row
 						flex-wrap wrap
@@ -96,31 +253,137 @@ md-grid-list
 						margin-left 0
 						margin 13px
 		.subservicio.info
-			background-color #1a57a5 !important
+			@media mobile
+				margin-top 30px
+			min-width inherit
+			min-height inherit
+			width 200px
+			height 49px
+			background-color verde
 				
 
 	.AntesEdicion
 		h1
-			font-size 2vw
+			font-size 20px
+			margin 0
+			@media mobile
+				font-size 15px
 		h3
-			font-size 1.3vw
+			font-size 16px
+			@media mobile
+				font-size 15px
 		.infoBasica-content
 			p 
-				font-size 1.3vw
+				font-size 16px
 				text-align justify
+				@media mobile
+					font-size 14px
+	.elementos-container
+		width 50%
+		@media mobile
+			max-width inherit !important
+			width 96%
+		.md-toolbar-tools
+			h4
+				margin 0
+				font-size 25px
+				font-weight 100
+				@media mobile
+					font-size 20px
+		.elementos-content
+			.md-button
+				background-color verde
+				min-width inherit
+				min-height inherit
+				width 65px
+				height 34px
+				margin-top 17px
+				@media mobile
+					width 60px
+					height 31px
+					margin-top 21px
+		.md-virtual-repeat-container
+			.repeated-item
+				.texto
+					width 100%
+					display flex
+					justify-content flex-start
+					align-items center
+					@media mobile
+						width 55%
+					strong
+						@media mobile
+							font-size 20px
+				.botones-container
+					display flex
+					flex-direction row
+					.md-button.md-fab
+						min-width inherit
+						min-height inherit
+						width 50px
+						height 50px
+						@media mobile
+							min-width inherit
+							min-height inherit
+							width 40px
+							height 40px
+					
+.imagenes-subservicio
+	.md-toolbar-tools
+		h4
+			margin 0
+			font-size 25px
+			font-weight 100 
+			@media mobile
+				font-size 20px
+	.contenedor
+		@media mobile
+			flex-direction column
+		form
+			@media mobile
+				max-width 100% !important
+			.imagen-container
+				@media mobile
+					height 30% !important
+			.md-button
+				margin-top 25px
+				@media mobile
+					margin-top 22px
+		md-grid-list
+			max-width 100%
 				
 .proyecto
 	display flex
 	flex-direction row
+	@media mobile
+		flex-direction column
 	.proyecto-content
+		width 50%
+		@media mobile
+			max-width inherit !important
+			width 95%
 		.md-toolbar-tools
 			h4
-				font-size 2vw
+				font-size 25px
+				margin 0
+				font-weight 100
+				@media mobile
+					font-size 22px
 	.DespuesEdicion
 		.proyecto-form
+			display flex
+			justify-content center
+			align-items center
+			.info
+				width 100%
 			.descripcion-container
+				height 50%
+				@media mobile
+					margin-bottom 30px
 				text-angular
 					.ta-toolbar
+						@media mobile 
+							display none !important
 						display flex
 						flex-direction row
 						flex-wrap wrap
@@ -133,32 +396,145 @@ md-grid-list
 						margin-left 0
 						margin 13px
 		.proyecto.info
-			background-color #1a57a5 !important
+			@media mobile
+				margin-top 30px
+			min-width inherit
+			min-height inherit
+			width 200px
+			height 49px
+			background-color verde
 				
 
 	.AntesEdicion
 		h1
-			font-size 2vw
+			font-size 20px
+			@media mobile
+				font-size 15px
+			
 		h3
-			font-size 1.3vw
+			font-size 16px
+			@media mobile
+				font-size 15px
+			
 		.infoBasica-content
 			p 
-				font-size 1.3vw
+				font-size 16px
 				text-align justify
+				@media mobile
+					font-size 14px
+					
+	.servicios-container
+		width 50%
+		@media mobile
+			max-width inherit !important
+			width 96%
+		.md-toolbar-tools
+			h4
+				margin 0
+				font-size 25px
+				font-weight 100
+				@media mobile
+					font-size 20px
+		.servicios-content
+			.md-button
+				background-color verde
+				min-width inherit
+				min-height inherit
+				width 65px
+				height 34px
+				margin-top 17px
+				@media mobile
+					width 60px
+					height 31px
+					margin-top 21px
+		.md-virtual-repeat-container
+			.repeated-item
+				.texto
+					width 100%
+					display flex
+					justify-content flex-start
+					align-items center
+					@media mobile
+						width 55%
+					strong
+						@media mobile
+							font-size 20px
+				.botones-container
+					display flex
+					flex-direction row
+					.md-button.md-fab
+						min-width inherit
+						min-height inherit
+						width 50px
+						height 50px
+						@media mobile
+							min-width inherit
+							min-height inherit
+							width 40px
+							height 40px
+.imagenes-proyecto
+	.md-toolbar-tools
+		h4
+			margin 0
+			font-size 25px
+			font-weight 100 
+			@media mobile
+				font-size 20px
+	.contenedor
+		@media mobile
+			flex-direction column
+		form
+			@media mobile
+				max-width 100% !important
+			.imagen-container
+				@media mobile
+					height 30% !important
+			.md-button
+				margin-top 25px
+				@media mobile
+					margin-top 22px
+		md-grid-list
+			max-width 100%
 				
+
 
 .trabajador
 	display flex
 	flex-direction row
+	@media mobile
+		flex-direction column
 	.trabajador-content
+		width 100%
+		@media mobile
+			max-width inherit !important
+			width 96%
 		.md-toolbar-tools
 			h4
-				font-size 2vw
+				margin 0
+				font-size 25px
+				font-weight 100
+				@media mobile
+					font-size 20px
 	.DespuesEdicion
 		.trabajador-form
+			display flex
+			justify-content center
+			align-items center
+			.info
+				width 100%
+				md-input-container
+					width 100%
+				@media mobile
+					display flex
+					flex-direction column				
 			.descripcion-container
+				height 50%
+				@media mobile
+					margin-bottom 30px
 				text-angular
 					.ta-toolbar
+						@media mobile 
+							display none !important
 						display flex
 						flex-direction row
 						flex-wrap wrap
@@ -171,15 +547,52 @@ md-grid-list
 						margin-left 0
 						margin 13px
 		.trabajador.info
-			background-color #1a57a5 !important
+			@media mobile
+				margin-top 30px
+			min-width inherit
+			min-height inherit
+			width 200px
+			height 49px
+			background-color verde
 				
 
 	.AntesEdicion
 		h1
-			font-size 2vw
+			margin 0
+			font-size 20px
+			@media mobile
+				font-size 15px
 		h3
-			font-size 1.3vw
+			font-size 16px
+			@media mobile
+				font-size 15px
+			
 		.infoBasica-content
 			p 
-				font-size 1.3vw
+				font-size 16px
 				text-align justify
+				@media mobile
+					font-size 14px
+.imagenes-trabajador
+	.md-toolbar-tools
+		h4
+			margin 0
+			font-size 25px
+			font-weight 100 
+			@media mobile
+				font-size 20px
+	.contenedor
+		@media mobile
+			flex-direction column
+		form
+			@media mobile
+				max-width 100% !important
+			.imagen-container
+				@media mobile
+					height 30% !important
+			.md-button
+				margin-top 25px
+				@media mobile
+					margin-top 22px
+		md-grid-list
+			max-width 100%

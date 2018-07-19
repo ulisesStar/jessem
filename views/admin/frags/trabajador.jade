@@ -1,5 +1,5 @@
 .trabajador
-	md-card.trabajador-content(flex)
+	md-card.trabajador-content
 		md-toolbar
 			.md-toolbar-tools
 				h4 Información Básica
@@ -19,7 +19,7 @@
 				.infoBasica-content(ng-bind-html="ctrl.trabajador.item.descripcion")
 			.DespuesEdicion(ng-show= "ctrl.infomuestra")
 				form.trabajador-form(ng-submit="ctrl.trabajador.editarTrabajador(ctrl.trabajador.item)" layout="column")
-					.info(layout="row" layout-xs="column" layout-align="space-between center")
+					.info(layout="row"  layout-align="space-between center")
 						md-input-container(flex)
 							md-icon(md-colors="{color: 'blue'}")  &#xE873;
 							label Nombre del Trabajador
@@ -47,7 +47,7 @@ md-card.imagenes-trabajador
 						input.dropify(type="file" data-default-file="Foto del Trabajador" ng-model="imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
 				md-button.imagen-button(type="submit" md-colors="{background: 'green'}" flex)
 					md-icon save
-			md-grid-list(md-cols="4" md-row-height="1:1" flex ="50")
+			md-grid-list(md-cols="4" md-cols-sm="1" md-cols-xs="1" md-row-height="1:1" flex ="50")
 				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.imagenes.items" style="background-image:url({{imagen.imagen}})")
 					md-grid-tile-footer(layout-align="center center")
 						md-button(ng-click="ctrl.imagenes.eliminarImagen(imagen.id,$index)")
