@@ -7,29 +7,29 @@ md-grid-list md-grid-tile {
   background-size: cover;
   background-position: center;
 }
-main {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-}
 .nav {
   position: fixed;
-  z-index: 10;
   width: 100%;
-  background-color: #008000;
+  z-index: 10;
 }
 .nav .nav-content {
   display: flex;
   flex-direction: row;
 }
 .nav .nav-content .logo {
+  width: 170px;
+  height: 60px;
   cursor: pointer;
 }
 .nav .nav-content .logo:focus {
   outline: 0px;
 }
-.nav .nav-content .menu {
+.nav .nav-content .logo img {
   width: 100%;
+  height: 100%;
+}
+.nav .nav-content .menu {
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +42,8 @@ main {
 }
 .nav .nav-content .menu .md-button span {
   font-size: 12px;
+  color: #fff;
+  font-weight: 800;
 }
 .footer .footer-content {
   display: flex;
@@ -76,4 +78,101 @@ main {
   margin: 0;
   margin-top: 10px;
   font-size: 11px;
+}
+.background-home {
+  background-image: url("/img/intro.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  position: absolute;
+  top: 0;
+}
+.home-container {
+  position: relative;
+  min-height: 100vh;
+}
+.home-container .home-content {
+  position: relative;
+  margin: 10vh 7vw;
+  min-height: 80vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-container .home-content .titulo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-container .home-content .titulo h1 {
+  font-size: 80px;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+}
+.nosotros-container {
+  position: relative;
+  min-height: 100vh;
+}
+.nosotros-container .nosotros-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.servicios-container {
+  position: relative;
+  min-height: 100vh;
+}
+.servicios-container .servicios-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.trabajadores-container {
+  position: relative;
+  min-height: 100vh;
+}
+.trabajadores-container .trabajadores-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.proyectos-container {
+  position: relative;
+  min-height: 100vh;
+}
+.proyectos-container .proyectos-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.trabajadores-container {
+  position: relative;
+  min-height: 100vh;
+}
+.trabajadores-container .trabajadores-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.contacto-container {
+  position: relative;
+  min-height: 100vh;
+}
+.contacto-container .contacto-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
 }
