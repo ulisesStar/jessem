@@ -1,3 +1,46 @@
+.background-servicios
 .servicios-container
-	.servicios-content
-		p Servicios
+	.servicios-content(layout="row")
+		.slider-content
+			.slider(layout="row" flex)
+				.servicio(ng-repeat='servicio in ctrl.servicios.items')
+					p {{servicio.nombre}}
+					md-button(ng-click="ctrl.servicios.infoSlider(servicio)")
+						md-icon remove
+						span Ver mas
+					.subservicios-dentro(ng-repeat="subservicio in ctrl.servicios.item.subservicios")
+						md-list
+							md-list-item
+								.md-list-item-text(layout="row" ng-click="ctrl.servicios.verInfoSubservicio(subservicio)")
+									md-icon remove
+									p {{subservicio.nombre}}
+			.flechas
+				.prev
+					md-button Anterior
+				.next
+					md-button siguiente
+		.subservicios-container(layout="column")
+			.subservicios-afuera(ng-repeat="subservicio in ctrl.servicios.subservicio.subservicios")
+				md-list
+					md-list-item
+						.md-list-item-text(layout="row")
+							md-icon remove
+							p {{subservicio.nombre}}
+		.detalles-servicios
+			.contenedor
+				.imagen
+					img(src="{{ctrl.servicios.item.imagenes[0].imagen}}")
+				.subservicios-detalles
+					h1 {{ctrl.servicios.detalles.nombre}}
+					.elementos(ng-repeat="elemento in ctrl.servicios.detalles.elementos")
+						md-list
+							md-list-item
+								.md-list-item-text(layout="row")
+									md-icon remove
+									p {{elemento.nombre}}
+					.sliderSubservicios-content
+						.Ssubservicios(layout="row" flex)
+							.imagen(ng-repeat='imagen in ctrl.servicios.detalles.imagenes')
+								.imagen
+									img(src="{{imagen.imagen}}")
+	

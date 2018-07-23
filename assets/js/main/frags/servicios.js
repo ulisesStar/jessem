@@ -3,9 +3,12 @@ var app = angular.module('myapp');
 app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Servicio, Imagen, Item) {
 
 	var self = this;
+	var bandera = 0;
 
 	class Servicios_{
 		constructor(){
+			this.item = {},
+			this.subservicio = {},
 			this.items = [],
 			this.obtener()
 		}
@@ -19,8 +22,54 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		agregarServicio(array){
 			array.forEach(n => this.items.push(n))
 			$scope.$digest()
-
+			this.mandarInfo(0);
+			$('.slider').slick({
+				dots: true,
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				arrows: true,
+				prevArrow: $('.prev'),
+				nextArrow: $('.next'),
+			})
+			$('.slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+				let elSlide = $(slick.$slides[currentSlide]);
+				let dataIndex = elSlide[0].dataset.slickIndex;
+				self.servicios.item = {}
+				self.servicios.mandarInfo(dataIndex);
+			});
 			console.log(self.servicios.items)
+		}
+
+		mandarInfo(idx){
+			
+			self.servicios.subservicio = self.servicios.items[idx];
+			$scope.$digest()
+			console.log(self.servicios.subservicio)
+		}
+
+		infoSlider(servicio){
+
+			self.servicios.item = servicio;
+			$scope.$digest()
+		}
+
+		verInfoSubservicio(subservicio){
+			self.servicios.detalles = subservicio;
+			console.log(self.servicios.detalles)
+			$scope.$digest()
+			self.servicios.agregarSlider();
+
+		}
+		agregarSlider(){
+
+			$('.Ssubservicios').slick({
+				infinite: true,
+				slidesToShow: 2,
+				slidesToScroll: 2
+			});
+
 		}
 	}
 

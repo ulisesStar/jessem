@@ -1,3 +1,22 @@
+.background-proyectos
 .proyectos-container
 	.proyectos-content
 		p Proyectos
+		.contenedor-pindividual
+			.subcontenedor
+				.proyectos(ng-repeat="proyecto in ctrl.proyectos.items")
+					md-list
+						md-list-item
+							.md-list-item-text(layout="row" ng-click="ctrl.proyectos.mandarInfo(proyecto)")
+								md-icon arrow_right_alt
+								p {{proyecto.nombre}}
+				.proyectos-info
+					.descripcion(ng-bind-html="ctrl.proyectos.item.descripcion")
+					.servicios(ng-repeat="servicio in ctrl.proyectos.item.servicios")
+						md-list
+							md-list-item
+								.md-list-item-text(layout="row")
+									md-icon remove
+									p {{servicio.nombre}}
+			.imagen-proyecto
+				img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}")

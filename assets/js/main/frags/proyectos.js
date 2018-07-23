@@ -6,6 +6,7 @@ app.controller('proyectosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 
 	class Proyectos_{
 		constructor(){
+			this.item = {}
 			this.items = [],
 			this.obtener()
 		}
@@ -20,6 +21,12 @@ app.controller('proyectosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			$scope.$digest();
 
 			console.log(self.proyectos.items)
+		}
+
+		mandarInfo(proyecto){
+			console.log(proyecto)
+			self.proyectos.item = proyecto;
+			$scope.$digest()
 		}
 	}
 	self.proyectos = new Proyectos_();

@@ -1,5 +1,7 @@
 mobile = "(max-width: 800px)"
-
+.azul
+	background-color #0580ad !important
+	
 transition(duracion, delay)
 	-webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
 	transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
@@ -122,16 +124,70 @@ md-grid-list
 				margin 0
 				color white
 			
-			
+
+		
+
+//-CSS DE NOSOTROS	
+
+.background-nosotros
+	background-image url('/img/fondoC.png')
+	background-repeat no-repeat
+	background-size cover
+	height 100%
+	width 100%
+	background-position center
+	position absolute
+	top 0
 .nosotros-container
 	position relative
 	min-height 100vh
+	display flex
+	flex-direction row
+	.imagen
+		width 70%
+		height 100%
+		img
+			width 100%
+			height 100%
+	.titulo-izq
+		position absolute
+		top 12vh
+		left 30vw
+		h2 
+			color white
+			font-size 12px
+			font-weight 100
+		h1
+			color white
+			margin 0
+			font-size 60px
+			font-weight 600
 	.nosotros-content
 		position relative
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
-		
+		display flex
+		justify-content center
+		.nosotros-descripcion
+			margin-top 8vh
+			width 60%
+			text-align justify
+			p 
+				color white
+				font-size 16px
+				
+//-CSS DE SERVICIOS
+
+.background-servicios
+	background-image url('/img/servicio.png')
+	background-repeat no-repeat
+	background-size cover
+	height 100%
+	width 100%
+	background-position center
+	position absolute
+	top 0
 .servicios-container
 	position relative
 	min-height 100vh
@@ -140,18 +196,27 @@ md-grid-list
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
+		display flex
+		align-items center
+		.slider-content
+			width 30%
+			height 30%
+			.slider
+				width 100%
+				height 100%
 		
+
+//-CSS DE PROYECTOS	
 		
-.trabajadores-container
-	position relative
-	min-height 100vh
-	.trabajadores-content
-		position relative
-		margin 10vh 10vw
-		min-height 80vh
-		width 80vw
-		
-		
+.background-proyectos
+	background-image url('/img/fondoC.png')
+	background-repeat no-repeat
+	background-size cover
+	height 100%
+	width 100%
+	background-position center
+	position absolute
+	top 0
 .proyectos-container
 	position relative
 	min-height 100vh
@@ -160,7 +225,12 @@ md-grid-list
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
+		.contenedor-pindividual
+			display flex
+			flex-direction row
 		
+		
+//-CSS DE TRABAJADORES
 		
 .trabajadores-container
 	position relative
@@ -171,6 +241,9 @@ md-grid-list
 		min-height 80vh
 		width 80vw
 		
+
+//-CSS DE CONTACTO
+
 .contacto-container
 	position relative
 	min-height 100vh
@@ -179,4 +252,3 @@ md-grid-list
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
-		
