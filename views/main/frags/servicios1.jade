@@ -5,7 +5,7 @@
 			.slider(layout="row" flex)
 				.servicio(ng-repeat='servicio in ctrl.servicios.items')
 					h1 {{servicio.nombre}}
-					md-button(ng-click="servicio.cargarSubservicios(servicio)")
+					md-button(ng-click="ctrl.servicios.infoSlider(servicio.id)")
 						md-icon remove
 						span Ver mas
 					.subservicios-dentro(ng-repeat="subservicio in ctrl.servicios.item.subservicios")

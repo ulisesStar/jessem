@@ -187,8 +187,11 @@ md-grid-list md-grid-tile {
   top: 0;
 }
 .servicios-container {
+  overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: row;
 }
 .servicios-container .servicios-content {
   position: relative;
@@ -248,6 +251,9 @@ md-grid-list md-grid-tile {
   font-size: 16px;
   margin: 0;
 }
+.servicios-container .servicios-content .slider-content .slider .servicio .subservicios-dentro md-list md-list-item .md-list-item-text:focus {
+  outline: 0px;
+}
 .servicios-container .servicios-content .slider-content .flechas {
   display: flex;
   flex-direction: row;
@@ -281,6 +287,55 @@ md-grid-list md-grid-tile {
   font-weight: 400;
   font-size: 18px;
   margin: 0;
+}
+.servicios-container .detalles-servicios {
+  position: absolute;
+  right: 0;
+  width: 0%;
+  height: 100%;
+}
+.servicios-container .detalles-servicios .contenedor .imagen {
+  width: 100%;
+  height: 35vh;
+}
+.servicios-container .detalles-servicios .contenedor .imagen img {
+  width: 100%;
+  height: 100%;
+}
+.servicios-container .detalles-servicios .contenedor .subservicios-detalles {
+  height: 65%;
+  background-color: rgba(255,255,255,0.6);
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.servicios-container .detalles-servicios .contenedor .subservicios-detalles h1 {
+  color: #0580ad;
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 5vh;
+  margin: 0;
+}
+.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 3vh;
+}
+.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos md-list md-list-item {
+  min-height: inherit !important;
+  height: 25px;
+}
+.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos md-list md-list-item .md-list-item-text md-icon {
+  color: #808080;
+}
+.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos md-list md-list-item .md-list-item-text p {
+  margin: 0;
+  color: #808080;
+  font-weight: 800;
+  font-size: 18px;
 }
 .background-proyectos {
   background-image: url("/img/fondoC.png");

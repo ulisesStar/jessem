@@ -8,8 +8,9 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 
 	class Servicios_{
 		constructor(){
-			this.items = [],
 			this.item = {},
+			this.subservicio = {},
+			this.items = [],
 			this.obtener()
 		}
 
@@ -22,6 +23,7 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		agregarServicio(array){
 			array.forEach(n => this.items.push(n))
 			$scope.$digest()
+			this.mandarInfo(0);
 			$('.slider').slick({
 				infinite: true,
 				speed: 300,
@@ -32,18 +34,26 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 				nextArrow: $('.next'),
 			})
 			$('.slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-				//var elSlide = $(slick.$slides[currentSlide]);
-				//var dataIndex = elSlide[0].dataset.slickIndex;
-				self.servicios.item = {}
+				let elSlide = $(slick.$slides[currentSlide]);
+				let dataIndex = elSlide[0].dataset.slickIndex;
 				var detalles = ($('.detalles-servicios'))
 				TweenLite.to(detalles, .2, {width:'0%', height:'0%'})
+				self.servicios.item = {}
+				self.servicios.detalles = {}
+				self.servicios.mandarInfo(dataIndex);
 				self.muestra = false;
 			});
 			console.log(self.servicios.items)
 		}
 
-		infoSlider(id){
+		mandarInfo(idx){
 			
+			self.servicios.subservicio = self.servicios.items[idx];
+			$scope.$digest()
+			console.log(self.servicios.subservicio)
+		}
+
+		infoSlider(servicio){
 			self.muestra = true;
 			self.servicios.item = servicio;
 			var detalles = ($('.detalles-servicios'))
@@ -73,16 +83,15 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			this.nombre = arg.nombre,
 			this.descripcion = arg.descripcion,
 			this.subservicios = [],
-			this.imagenes()
+			this.imagenes(),
+			this.obtenerSubservicios()
 		}
 
-		cargarSubservicios(servicio){
-			Servicio.obtenerSub(servicio.id)
-			.then(res => this.subservicios = res.data)
-			.then(res => self.servicios.item = servicio)
-			.then(() => $scope.$digest())
-			self.muestra = true;
-			TweenLite.to($('.detalles-servicios'), .3, {width:'50%', height:'100%'})
+		async obtenerSubservicios(){
+
+			await Servicio.obtenerSub(this.id)
+			.then(res => res.data.map(n =>   new Subservicios_(n)))
+			.then(res => this.agregarSubservicio(res))
 		}
 
 		async imagenes(){
@@ -90,6 +99,34 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			.then(res => this.imagenes = res.data)
 			.then(() => $scope.$digest())
 		}
+
+		agregarSubservicio(array){
+			array.forEach(n => this.subservicios.push(n))
+			$scope.$digest()
+		}
 	}
 
+	class Subservicios_{
+		constructor(arg){
+			this.id = arg.id,
+			this.nombre = arg.nombre,
+			this.descripcion = arg.descripcion
+			this.imagenesSub(),
+			this.elementos()
+		}
+
+		 async imagenesSub(){
+
+			 await Imagen.obtenerDesubservicios(this.id)
+			.then(res => this.imagenes = res.data)
+			.then(() => $scope.$digest())
+		}
+
+		 async elementos(){
+		 	
+			 await Item.obtenerDeSubservicios(this.id)
+			.then(res => this.elementos = res.data)
+			.then(() => $scope.$digest())
+		}
+	}
 });
