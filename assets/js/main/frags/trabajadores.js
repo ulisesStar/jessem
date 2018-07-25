@@ -20,6 +20,13 @@ app.controller('trabajadoresCtrl', function($scope, $rootScope, $http, $mdDialog
 			array.forEach(n => this.items.push(n))
 			$scope.$digest()
 			console.log(self.trabajadores.items)
+
+			$('.slider').slick({
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				adaptiveHeight: true
+			})
 		}
 	}
 

@@ -4,6 +4,7 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 
 	var self = this;
 	var bandera = 0;
+	self.muestra = false;
 
 	class Servicios_{
 		constructor(){
@@ -24,7 +25,6 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			$scope.$digest()
 			this.mandarInfo(0);
 			$('.slider').slick({
-				dots: true,
 				infinite: true,
 				speed: 300,
 				slidesToShow: 1,
@@ -50,6 +50,7 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		}
 
 		infoSlider(servicio){
+			self.muestra = true;
 
 			self.servicios.item = servicio;
 			$scope.$digest()

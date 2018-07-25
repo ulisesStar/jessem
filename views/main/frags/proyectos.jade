@@ -1,7 +1,7 @@
 .background-proyectos
 .proyectos-container
 	.proyectos-content
-		p Proyectos
+		h1 Proyectos
 		.contenedor-pindividual
 			.subcontenedor
 				.proyectos(ng-repeat="proyecto in ctrl.proyectos.items")
@@ -18,5 +18,5 @@
 								.md-list-item-text(layout="row")
 									md-icon remove
 									p {{servicio.nombre}}
-			.imagen-proyecto
-				img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}")
+	.imagen
+		img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}")

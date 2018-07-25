@@ -1,4 +1,4 @@
-mobile = "(max-width: 800px)"
+mobile = "(max-width: 900px)"
 .azul
 	background-color #0580ad !important
 	
@@ -198,15 +198,80 @@ md-grid-list
 		width 80vw
 		display flex
 		align-items center
+		justify-content space-between
 		.slider-content
-			width 30%
+			width 45%
 			height 30%
 			.slider
 				width 100%
 				height 100%
-		
-
-//-CSS DE PROYECTOS	
+				.servicio
+					display flex
+					flex-direction column
+					justify-content center
+					align-items center
+					h1
+						color white
+						font-size 60px
+						margin 0
+						font-weight 800
+					.md-button
+						margin-left 45%
+						md-icon
+							color white
+						span
+							color white
+							font-size 20px
+							font-weight 100
+							text-transform capitalize
+					&:focus
+						outline 0px
+					.subservicios-dentro
+						display flex
+						justify-content flex-start
+						height 30px
+						md-list
+							md-list-item
+								.md-list-item-text
+									md-icon
+										color white
+									p
+										color white
+										font-weight 400
+										font-size 16px
+										margin 0
+			.flechas
+				display flex
+				flex-direction row
+				justify-content space-around
+				align-items center
+				.prev
+					.md-button
+						margin 0
+						md-icon
+							color white
+						
+				.next
+					.md-button
+						margin 0
+						md-icon
+							color white
+		.subservicios-container
+			.subservicios-afuera
+				margin 0
+				height 5%
+				md-list
+					md-list-item
+						.md-list-item-text
+							margin 0
+							md-icon
+								color white
+							p
+								color white
+								font-weight 400
+								font-size 18px
+								margin 0
+//-CSS DE PROYECTOS
 		
 .background-proyectos
 	background-image url('/img/fondoC.png')
@@ -220,18 +285,71 @@ md-grid-list
 .proyectos-container
 	position relative
 	min-height 100vh
+	display flex
+	flex-direction row
 	.proyectos-content
 		position relative
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
+		h1
+			color white
+			font-weight 800
+			font-size 50px
+			margin 0
 		.contenedor-pindividual
+			margin-top 5vh
 			display flex
 			flex-direction row
+			.subcontenedor
+				.proyectos
+					md-list
+						.md-list-item-text
+							md-icon
+								color white
+							p
+								margin 0
+								color white
+								font-size 16px
+								font-weight 100
+				.proyectos-info
+					margin-top 10vh
+					.descripcion
+						text-align justify
+						width 100%
+						p
+							color white
+							font-size 16px
+							font-weight 100
+					.servicios
+						md-list
+							md-list-item
+								.md-list-item-text
+									md-icon
+										color white
+									p
+										margin 0
+										color white
+										font-size 16px
+										font-weight 100
+	.imagen
+		width 0%
+		height 100%
+		img
+			width 100%
+			height 100%
 		
 		
 //-CSS DE TRABAJADORES
-		
+.background-trabajadores
+	background-image url('/img/fondoC.png')
+	background-repeat no-repeat
+	background-size cover
+	height 100%
+	width 100%
+	background-position center
+	position absolute
+	top 0
 .trabajadores-container
 	position relative
 	min-height 100vh
@@ -240,7 +358,58 @@ md-grid-list
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
-		
+		.slider-content
+			position relative
+			width 100%
+			height 80%
+			.slider
+				width 100%
+				height 100%
+				.trabajador
+					.contenedor
+						display flex
+						flex-direction row
+						.parte-izq
+							width 50%
+							display flex
+							flex-direction column
+							align-items center
+							h1
+								margin-top 10vh
+								color white
+								font-size 30px
+							.descripcion
+								text-align justify
+								width 80%
+								p
+									color white
+									font-size 16px
+						.parte-der
+							width 50%
+							display flex
+							flex-direction column
+							justify-content center
+							align-items center
+							.titulo
+								margin-top 10vh
+								text-align right
+								display flex
+								flex-direction column
+								h3
+									color white
+									font-size 25px
+									margin 0
+								p
+									margin 0
+									font-size 18px
+									color white
+							.imagen
+								margin-top 3vh
+								width 25vw
+								height 50vh
+								img
+									width 100%
+									height 100%
 
 //-CSS DE CONTACTO
 
@@ -252,3 +421,54 @@ md-grid-list
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		.seccion-izquierda
+			width 50%
+			height 80%
+		.seccion-derecha
+			width 50%
+			height 80%
+			display flex
+			flex-direction column
+			.titulo
+				margin-top 10vh
+				h1
+					font-size 25px
+					font-weight 100
+			.contenedor
+				display flex
+				flex-direction row
+				margin-top 10vh
+				.contenedor-izq
+					display flex
+					flex-direction column
+					width 50%
+					.arquitectos
+						h2
+							margin 0
+							font-size 16px
+							font-weight 400
+					.direccion
+						margin-top 2vh
+						width 77%			
+						p
+							font-size 16px
+							font-weight 100
+				.contenedor-der
+					display flex
+					flex-direction column
+					width 50%
+					.telefonos
+						p
+							font-size 16px
+							margin 0
+							font-weight 100
+					.correos
+						margin-top 2vh
+						h2
+							font-size 18px
+							font-weight 600
+							margin 0

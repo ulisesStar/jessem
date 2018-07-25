@@ -1,3 +1,18 @@
+.background-trabajadores
 .trabajadores-container
 	.trabajadores-content
-		p Trabajadores
+		.slider-content
+			.slider(layout="row" flex)
+				.trabajador(ng-repeat='trabajador in ctrl.trabajadores.items')
+					.contenedor
+						.parte-izq
+							h1 Nuestro Equipo
+							.descripcion(ng-bind-html="trabajador.descripcion")
+							//-md-divider
+						.parte-der
+							.titulo
+								h3 {{trabajador.nombre}}
+								p {{trabajador.puesto}}
+							.imagen
+								img(src="{{trabajador.imagen[0].imagen}}")
+

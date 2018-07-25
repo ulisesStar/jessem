@@ -26,7 +26,8 @@ app.controller('proyectosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		mandarInfo(proyecto){
 			console.log(proyecto)
 			self.proyectos.item = proyecto;
-			$scope.$digest()
+			var imagen = ($('.imagen'))
+			TweenLite.to(imagen, 1, {width:'150%'})
 		}
 	}
 	self.proyectos = new Proyectos_();
