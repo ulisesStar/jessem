@@ -177,14 +177,15 @@ md-grid-list md-grid-tile {
   font-size: 16px;
 }
 .background-servicios {
-  background-image: url("/img/servicio.png");
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100%;
   width: 100%;
   background-position: center;
   position: absolute;
   top: 0;
+}
+.background-servicios img {
+  width: 100%;
+  height: 100%;
 }
 .servicios-container {
   overflow-x: hidden;
@@ -294,44 +295,39 @@ md-grid-list md-grid-tile {
   width: 0%;
   height: 100%;
 }
-.servicios-container .detalles-servicios .contenedor .imagen {
-  width: 100%;
-  height: 35vh;
-}
-.servicios-container .detalles-servicios .contenedor .imagen img {
-  width: 100%;
-  height: 100%;
-}
-.servicios-container .detalles-servicios .contenedor .subservicios-detalles {
-  height: 65%;
+.servicios-container .detalles-servicios .subservicios-detalles {
+  height: 90%;
   background-color: rgba(255,255,255,0.6);
   overflow-y: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
-.servicios-container .detalles-servicios .contenedor .subservicios-detalles h1 {
+.servicios-container .detalles-servicios .subservicios-detalles h1 {
   color: #0580ad;
   font-size: 30px;
   font-weight: 600;
   margin-top: 5vh;
   margin: 0;
 }
-.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos {
+.servicios-container .detalles-servicios .subservicios-detalles .elementos {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
   margin-top: 3vh;
 }
-.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos md-list md-list-item {
+.servicios-container .detalles-servicios .subservicios-detalles .elementos md-list md-list-item {
   min-height: inherit !important;
   height: 25px;
 }
-.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos md-list md-list-item .md-list-item-text md-icon {
+.servicios-container .detalles-servicios .subservicios-detalles .elementos md-list md-list-item .md-list-item-text md-icon {
   color: #808080;
 }
-.servicios-container .detalles-servicios .contenedor .subservicios-detalles .elementos md-list md-list-item .md-list-item-text p {
+.servicios-container .detalles-servicios .subservicios-detalles .elementos md-list md-list-item .md-list-item-text p {
   margin: 0;
   color: #808080;
   font-weight: 800;

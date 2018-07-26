@@ -1,17 +1,18 @@
 .background-servicios
+	img(src="{{ctrl.servicios.item.imagenes[0].imagen}}")
 .servicios-container
 	.servicios-content(layout="row")
 		.slider-content
 			.slider(layout="row" flex)
 				.servicio(ng-repeat='servicio in ctrl.servicios.items')
 					h1 {{servicio.nombre}}
-					md-button(ng-click="servicio.cargarSubservicios(servicio)")
+					md-button(ng-click="ctrl.muestra = !ctrl.muestra" )
 						md-icon remove
 						span Ver mas
-					.subservicios-dentro(ng-repeat="subservicio in ctrl.servicios.item.subservicios")
+					.subservicios-dentro(ng-repeat="subservicio in ctrl.servicios.item.subservicios" ng-show="ctrl.muestra")
 						md-list
 							md-list-item
-								.md-list-item-text(layout="row" ng-click="ctrl.servicios.verInfoSubservicio(subservicio)")
+								.md-list-item-text(layout="row" ng-click="ctrl.servicios.abrirDetalles(subservicio)")
 									md-icon remove
 									p {{subservicio.nombre}}
 			.flechas
@@ -21,27 +22,29 @@
 				.next
 					md-button
 						md-icon keyboard_arrow_right
-		.subservicios-container(layout="column" ng-show="!ctrl.muestra")
-			.subservicios-afuera(ng-repeat="subservicio in ctrl.servicios.subservicio.subservicios")
+		.subservicios-container(layout="column" ng-show="ctrl.muestra2")
+			.subservicios-afuera(ng-repeat="subservicio in ctrl.servicios.item.subservicios")
 				md-list
 					md-list-item
 						.md-list-item-text(layout="row")
 							md-icon remove
 							p {{subservicio.nombre}}
-	.detalles-servicios(ng-show="ctrl.muestra")
-		.contenedor
-			.imagen
-				img(src="{{ctrl.servicios.item.imagenes[0].imagen}}")
-			.subservicios-detalles
-				h1 {{ctrl.servicios.detalles.nombre}}
-				.elementos
-					md-list
-						md-list-item(ng-repeat="elemento in ctrl.servicios.detalles.elementos")
-							.md-list-item-text(layout="row")
-								md-icon remove
-								p {{elemento.nombre}}
-				.sliderSub-content
-					.algo(layout="row" flex)
-						.imagen(ng-repeat='imagen in ctrl.servicios.detalles.imagenes')
-							.imagen
-								img(src="{{imagen.imagen}}")
+	.detalles-servicios(ng-show="!ctrl.muestra2")
+		.subservicios-detalles
+			.titulo-servicio
+				h1 {{ctrl.servicios.item.nombre}}
+				.descripcion(ng-bind-html="ctrl.servicios.item.descripcion")
+			.titulo-subservicio
+				h2 {{ctrl.subservicio.nombre}}
+				.descripcion(ng-bind-html="ctrl.subservicio.descripcion")
+			.elementos
+				md-list
+					md-list-item(ng-repeat="elemento in ctrl.subservicio.elementos")
+						.md-list-item-text(layout="row")
+							md-icon remove
+							p {{elemento.nombre}}
+			.sliderSub-content
+				.algo(layout="row" flex)
+					.imagen(ng-repeat='imagen in ctrl.servicios.detalles.im agenes')
+						.imagen
+							img(src="{{imagen.imagen}}")
