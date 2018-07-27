@@ -2,22 +2,34 @@
 	.contacto-content
 		.seccion-izquierda
 			.mapa
-				p *AQUI VA EL MAPA*
+				ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options" flex)
+					ui-gmap-marker(coords="marker.coordenadas" idkey="$index" ng-repeat="marker in markers")
 		.seccion-derecha
-			.titulo
-				h1 Oficinas Boca del Rio
-			.contenedor
-				.contenedor-izq
-					.arquitectos
-						h2 Arq. Jocelyn J. Chávez Hernández.
-						h2 Arq. Héctor Escobar Romero.
-					.direccion
-						p Domicilio: Calle Rio Jamapa No.1036 B Col: Las vegas II, C.P. 94297,Boca del Rio, Veracruz
-				.contenedor-der
-					.telefonos
-						p Tel:(229)286 20 03
-						p Cel1: 229 392 38 22
-						p Cel2: 229 950 04 05
-					.correos
-						h2 email: arq.jocelynjchn@outlook.com
-						h2 email: arq.hectorescrome@gmail.com
+			.slider-content
+				.slider(layout="row" flex)
+					.contacto(ng-repeat='contacto in ctrl.contactos')
+						.titulo
+							h1{{contacto.nombre}}
+						.contenedor
+							.contenedor-izq
+								.arquitectos
+									h2 {{contacto.arquitecto1}}
+									h2 {{contacto.arquitecto2}}
+								.direccion
+									p {{contacto.domicilio}}
+							.contenedor-der
+								.telefonos
+									p {{contacto.tel1}}
+									p {{contacto.tel2}}
+									p {{contacto.tel3}}
+								.correos
+									h2 {{contacto.email1}}
+									h2 {{contacto.email2}}
+				.flechas
+					.div
+						.prev
+							md-button
+								md-icon keyboard_arrow_left
+						.next
+							md-button
+								md-icon keyboard_arrow_right

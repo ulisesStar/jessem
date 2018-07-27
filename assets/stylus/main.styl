@@ -205,7 +205,7 @@ md-grid-list
 		justify-content space-between
 		.slider-content
 			width 45%
-			height 30%
+			height 25%
 			.slider
 				width 100%
 				height 100%
@@ -284,7 +284,7 @@ md-grid-list
 		height 100%
 		.subservicios-detalles
 			height 90%
-			background-color rgba(255,255,255,0.6)
+			background-color rgba(255,255,255,0.7)
 			overflow-y hidden
 			display flex
 			flex-direction column
@@ -292,18 +292,47 @@ md-grid-list
 			position absolute
 			bottom 0
 			width 100%
-			h1
-				color azul2
-				font-size 30px
-				font-weight 600
-				margin-top 5vh
-				margin 0
+			.titulo-servicio
+				margin-top 2vh
+				h1
+					color azul2
+					font-size 40px
+					font-weight 800
+					margin 0
+					 margin-left 15px
+				.md-button
+					background-color #2c475a
+					width 40px !important
+					height 40px !important
+					md-icon
+						color white
+				.descripcion
+					padding 15px
+					text-align justify
+					p
+						font-weight 100
+						font-size 14px
+			md-divider
+				width 100%
+			.titulo-subservicio
+				margin-top 1vh
+				h2
+					text-align center
+					margin 0
+					color azul2
+				.descripcion
+					text-align justify
+					padding 15px
+					margin 0
+					p 
+						font-size 14px
+						font-weight 100
+						
 			.elementos
 				display flex
 				flex-direction column
 				justify-content flex-start
 				width 100%
-				margin-top 3vh
 				md-list
 					md-list-item
 						min-height inherit !important
@@ -316,6 +345,21 @@ md-grid-list
 								color gray
 								font-weight 800
 								font-size 18px
+			.sliderSub-content
+				margin-top 5vh
+				position relative
+				width 50%
+				height 30%
+				.algo
+					width 100%
+					height 100%
+					.slick-prev, .slick-next
+						&:before
+							color azul2
+					.imagen
+						img
+							width 100%
+							height 100%
 
 
 
@@ -474,49 +518,90 @@ md-grid-list
 		justify-content center
 		align-items center
 		.seccion-izquierda
-			width 50%
-			height 80%
-		.seccion-derecha
-			width 50%
-			height 80%
+			margin-top 8vh
 			display flex
 			flex-direction column
-			.titulo
-				margin-top 10vh
-				h1
-					font-size 25px
-					font-weight 100
-			.contenedor
-				display flex
-				flex-direction row
-				margin-top 10vh
-				.contenedor-izq
+			width 50%
+			height 90%
+			.mapa
+				padding 10px
+				ui-gmap-google-map
+					.angular-google-map-container
+						height 60%
+		.seccion-derecha
+			margin-top 8vh
+			width 50%
+			height 90%
+			display flex
+			flex-direction column
+			align-items center
+			.slider-content
+				width 100%
+				height 50%
+				.slider
+					width 100%
+					height 100%
+					.contacto
+						&:focus
+							outline 0px
+						.titulo
+							text-align center
+							h1
+								font-size 25px
+								font-weight 100
+						.contenedor
+							display flex
+							flex-direction row
+							margin-top 10vh
+							margin-left 2vw
+							.contenedor-izq
+								display flex
+								flex-direction column
+								width 50%
+								.arquitectos
+									h2
+										margin 0
+										font-size 16px
+										font-weight 400
+								.direccion
+									margin-top 2vh
+									width 77%
+									text-align justify			
+									p
+										font-size 16px
+										font-weight 100
+							.contenedor-der
+								display flex
+								flex-direction column
+								width 50%
+								.telefonos
+									p
+										font-size 16px
+										margin 0
+										font-weight 100
+								.correos
+									margin-top 2vh
+									h2
+										font-size 18px
+										font-weight 600
+										margin 0
+				.flechas
 					display flex
-					flex-direction column
-					width 50%
-					.arquitectos
-						h2
-							margin 0
-							font-size 16px
-							font-weight 400
-					.direccion
-						margin-top 2vh
-						width 77%			
-						p
-							font-size 16px
-							font-weight 100
-				.contenedor-der
-					display flex
-					flex-direction column
-					width 50%
-					.telefonos
-						p
-							font-size 16px
-							margin 0
-							font-weight 100
-					.correos
-						margin-top 2vh
-						h2
-							font-size 18px
-							font-weight 600
-							margin 0
+					flex-direction row
+					justify-content center
+					.div
+						display flex
+						flex-direction row
+						justify-content space-between
+						width 50%
+						.prev
+							.md-button
+								margin 0
+								md-icon
+									color black
+								
+						.next
+							.md-button
+								margin 0
+								md-icon
+									color black

@@ -8,7 +8,8 @@
 					h1 {{servicio.nombre}}
 					md-button(ng-click="ctrl.muestra = !ctrl.muestra" )
 						md-icon remove
-						span Ver mas
+						span(ng-show="!ctrl.muestra") Ver mas
+						span(ng-show="ctrl.muestra") Cerrar
 					.subservicios-dentro(ng-repeat="subservicio in ctrl.servicios.item.subservicios" ng-show="ctrl.muestra")
 						md-list
 							md-list-item
@@ -32,8 +33,13 @@
 	.detalles-servicios(ng-show="!ctrl.muestra2")
 		.subservicios-detalles
 			.titulo-servicio
-				h1 {{ctrl.servicios.item.nombre}}
+				.div(layout="row")
+					h1 {{ctrl.servicios.item.nombre}}
+					span(flex)
+					md-button.md-fab(ng-click="ctrl.servicios.cerrar()")
+						md-icon clear
 				.descripcion(ng-bind-html="ctrl.servicios.item.descripcion")
+			md-divider
 			.titulo-subservicio
 				h2 {{ctrl.subservicio.nombre}}
 				.descripcion(ng-bind-html="ctrl.subservicio.descripcion")
@@ -45,6 +51,6 @@
 							p {{elemento.nombre}}
 			.sliderSub-content
 				.algo(layout="row" flex)
-					.imagen(ng-repeat='imagen in ctrl.servicios.detalles.im agenes')
+					.imagen(ng-repeat='imagen in ctrl.subservicio.imagenes')
 						.imagen
 							img(src="{{imagen.imagen}}")

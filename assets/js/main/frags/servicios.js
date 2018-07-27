@@ -50,7 +50,7 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			this.item = self.servicios.items[idx]
 			$scope.$digest()
 			console.log(self.servicios.item)
-			//Servicio.obtenerSub(self.servicios.items[idx].id)
+			
 		}
 
 		async abrirDetalles(subservicio){
@@ -62,12 +62,26 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			.then(res => self.subservicio.elementos = res.data)
 			.then(() => $scope.$digest())
 
-			await Imagen.obtenerDesubservicios(this.id)
+			await Imagen.obtenerDesubservicios(subservicio.id)
 			.then(res =>{ self.subservicio.imagenes = res.data; console.log(self.subservicio)})
 			.then(() => $scope.$digest())
 
+			if(self.servicios.imagenes != [])
+				$('.algo').slick({
+					infinite: true,
+					speed: 300,
+					slidesToShow: 1,
+					adaptiveHeight: true,
+					arrows: true
+				})
+			
 
+		}
 
+		cerrar(){
+			this.subservicios = {};
+			var detalles = ($('.detalles-servicios'))
+			TweenLite.to(detalles, .3, {width:'0%', height:'100%'})
 		}
 
 	}
