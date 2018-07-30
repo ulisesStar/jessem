@@ -7,4 +7,13 @@
 			md-button(ui-sref="servicios") SERVICIOS
 			md-button(ui-sref="proyectos") PROYECTOS
 			md-button(ui-sref="contacto") CONTACTO
-			
+		.menu-pequeno
+			md-button(ng-click="toggleLeft()")
+				md-icon(style="color: white;") menu
+.menu-chiquito(layout="row")
+	md-sidenav.md-sidenav-right(md-component-id="right" md-whiteframe="4")
+		.cerrar(ng-click="toggleLeft()")
+			p X
+		md-list
+			md-list-item(ui-sref="{{seccion.state}}" ng-click="toggleLeft()" ng-repeat="seccion in secciones")
+				h4 {{seccion.nombre}}

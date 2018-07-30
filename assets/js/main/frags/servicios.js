@@ -55,6 +55,8 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 
 		async abrirDetalles(subservicio){
 			self.subservicio = subservicio;
+			self.subservicio.elementos = []
+			self.subservicio.imagenes = []
 			self.muestra2 = false;
 			var detalles = ($('.detalles-servicios'))
 			TweenLite.to(detalles, .3, {width:'50%', height:'100%'})
