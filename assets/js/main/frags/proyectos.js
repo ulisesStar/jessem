@@ -3,6 +3,7 @@ var app = angular.module('myapp');
 app.controller('proyectosCtrl', function($scope, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Proyecto, Imagen) {
 
 	var self = this;
+	self.muestra = true;
 
 	class Proyectos_{
 		constructor(){
@@ -26,8 +27,15 @@ app.controller('proyectosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		mandarInfo(proyecto){
 			console.log(proyecto)
 			self.proyectos.item = proyecto;
-			var imagen = ($('.imagen'))
-			TweenLite.to(imagen, 1, {width:'150%'})
+			var contenedor = ($('.contenedor-secundario'))
+			TweenLite.to(contenedor, .3, {width:'100%', height:'100%'})
+			self.muestra = false;
+		}
+
+		cerrar(){
+			var contenedor = ($('.contenedor-secundario'))
+			TweenLite.to(contenedor, .3, {width:'0%', height:'100%'})
+			self.muestra = true;
 		}
 	}
 	self.proyectos = new Proyectos_();

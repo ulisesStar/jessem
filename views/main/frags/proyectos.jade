@@ -4,19 +4,23 @@
 		h1 Proyectos
 		.contenedor-pindividual
 			.subcontenedor
-				.proyectos(ng-repeat="proyecto in ctrl.proyectos.items")
-					md-list
-						md-list-item
-							.md-list-item-text(layout="row" ng-click="ctrl.proyectos.mandarInfo(proyecto)")
-								md-icon arrow_right_alt
+				.proyectos
+					md-virtual-repeat-container#vertical-container
+						.repeated-item(layout="row" md-virtual-repeat='proyecto in ctrl.proyectos.items' flex)
+							.texto(ng-click="ctrl.proyectos.mandarInfo(proyecto)")
+								md-icon remove
 								p {{proyecto.nombre}}
-				.proyectos-info
-					.descripcion(ng-bind-html="ctrl.proyectos.item.descripcion")
-					.servicios(ng-repeat="servicio in ctrl.proyectos.item.servicios")
-						md-list
-							md-list-item
-								.md-list-item-text(layout="row")
-									md-icon remove
-									p {{servicio.nombre}}
-	.imagen
-		img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}")
+	.contenedor-secundario
+		.imagen
+			img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}")
+			.botonCerrar(ng-show="!ctrl.muestra")
+				md-button.md-fab(ng-click="ctrl.proyectos.cerrar()")
+					md-icon clear
+		.proyectos-info(ng-show="!ctrl.muestra")
+			.descripcion(ng-bind-html="ctrl.proyectos.item.descripcion")
+			.servicios(ng-repeat="servicio in ctrl.proyectos.item.servicios")
+				md-list
+					md-list-item
+						.md-list-item-text(layout="row")
+							md-icon remove
+							p {{servicio.nombre}}
