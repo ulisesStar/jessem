@@ -2,7 +2,6 @@ var app = angular.module('myapp');
 
 app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams) {
 
-	self = this;
-
+	var self = this;
 
 });

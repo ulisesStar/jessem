@@ -305,7 +305,6 @@ md-grid-list md-grid-tile {
   }
 }
 .background-servicios {
-  background-color: #000;
   height: 100%;
   width: 100%;
   background-position: center;
@@ -798,7 +797,6 @@ md-grid-list md-grid-tile {
 .contacto-container .contacto-content .seccion-derecha .slider-content .slider .contacto .contenedor .contenedor-izq .direccion {
   margin-top: 2vh;
   width: 77%;
-  text-align: justify;
 }
 .contacto-container .contacto-content .seccion-derecha .slider-content .slider .contacto .contenedor .contenedor-izq .direccion p {
   font-size: 16px;

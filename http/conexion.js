@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('heroku_41d0338250b929e', 'b14cb895857747', 'b58717cf', {
-    host: 'us-cdbr-iron-east-04.cleardb.net',
+var sequelize = new Sequelize('jessem', 'root', 'qwertyuiop', {
+    host: '35.231.165.172',
     dialect: 'mysql',
     port: '3306',
     pool: {
