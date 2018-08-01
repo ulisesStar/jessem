@@ -315,6 +315,15 @@ md-grid-list md-grid-tile {
   width: 100%;
   height: 100%;
 }
+.cortina {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
 .servicios-container {
   overflow-x: hidden;
   position: relative;
@@ -328,12 +337,17 @@ md-grid-list md-grid-tile {
   min-height: 80vh;
   width: 80vw;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 .servicios-container .servicios-content .slider-content {
-  width: 45%;
-  height: 38%;
+  margin-top: 17vh;
+  width: 49%;
+  height: 36%;
+}
+@media (max-width: 1024px) {
+  .servicios-container .servicios-content .slider-content {
+    height: 45%;
+  }
 }
 .servicios-container .servicios-content .slider-content .slider {
   width: 100%;
@@ -342,7 +356,6 @@ md-grid-list md-grid-tile {
 .servicios-container .servicios-content .slider-content .slider .servicio {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 .servicios-container .servicios-content .slider-content .slider .servicio h1 {
   text-align: center;
@@ -350,6 +363,11 @@ md-grid-list md-grid-tile {
   font-size: 60px;
   margin: 0;
   font-weight: 800;
+}
+@media (max-width: 1024px) {
+  .servicios-container .servicios-content .slider-content .slider .servicio h1 {
+    font-size: 50px;
+  }
 }
 .servicios-container .servicios-content .slider-content .slider .servicio .md-button {
   margin-left: 45%;
@@ -370,6 +388,10 @@ md-grid-list md-grid-tile {
   display: flex;
   justify-content: center;
   height: 30px;
+}
+.servicios-container .servicios-content .slider-content .slider .servicio .subservicios-dentro md-list md-list-item {
+  min-height: inherit !important;
+  height: 25px;
 }
 .servicios-container .servicios-content .slider-content .slider .servicio .subservicios-dentro md-list md-list-item .md-list-item-text md-icon {
   color: #fff;
@@ -400,6 +422,9 @@ md-grid-list md-grid-tile {
 }
 .servicios-container .servicios-content .slider-content .flechas .next .md-button md-icon {
   color: #fff;
+}
+.servicios-container .servicios-content .subservicios-container {
+  margin-top: 17vh;
 }
 .servicios-container .servicios-content .subservicios-container .subservicios-afuera {
   margin: 0;
@@ -436,6 +461,11 @@ md-grid-list md-grid-tile {
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio {
   margin-top: 2vh;
+}
+@media (max-width: 1024px) {
+  .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio {
+    display: none;
+  }
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio h1 {
   color: #0580ad;
@@ -488,7 +518,12 @@ md-grid-list md-grid-tile {
 }
 .servicios-container .detalles-servicios .subservicios-detalles .elementos md-list md-list-item {
   min-height: inherit !important;
-  height: 25px;
+  height: 30px;
+}
+@media (max-width: 1024px) {
+  .servicios-container .detalles-servicios .subservicios-detalles .elementos md-list md-list-item {
+    height: 38px;
+  }
 }
 .servicios-container .detalles-servicios .subservicios-detalles .elementos md-list md-list-item .md-list-item-text md-icon {
   color: #808080;
@@ -592,6 +627,12 @@ md-grid-list md-grid-tile {
   top: 0;
   right: 0;
 }
+@media (max-width: 1024px) {
+  .proyectos-container .contenedor-secundario .imagen .botonCerrar {
+    left: 0;
+    right: inherit;
+  }
+}
 .proyectos-container .contenedor-secundario .imagen .botonCerrar .md-button {
   background-color: #2c475a;
   height: 40px !important;
@@ -660,6 +701,11 @@ md-grid-list md-grid-tile {
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 1024px) {
+  .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-izq {
+    display: none;
+  }
+}
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-izq h1 {
   margin-top: 10vh;
   color: #fff;
@@ -679,6 +725,11 @@ md-grid-list md-grid-tile {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 1024px) {
+  .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-der {
+    width: 100%;
+  }
 }
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-der .titulo {
   margin-top: 10vh;

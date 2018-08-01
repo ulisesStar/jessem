@@ -1,5 +1,6 @@
 .background-servicios
 	img(src="{{ctrl.servicios.item.imagenes[0].imagen}}")
+.cortina
 .servicios-container
 	.servicios-content(layout="row")
 		.slider-content
@@ -10,9 +11,9 @@
 						md-icon remove
 						span(ng-show="!ctrl.muestra") Ver mas
 						span(ng-show="ctrl.muestra") Cerrar
-					.subservicios-dentro(ng-repeat="subservicio in ctrl.servicios.item.subservicios" ng-show="ctrl.muestra")
+					.subservicios-dentro
 						md-list
-							md-list-item
+							md-list-item(ng-repeat="subservicio in ctrl.servicios.item.subservicios" ng-if="ctrl.muestra")
 								.md-list-item-text(layout="row" ng-click="ctrl.servicios.abrirDetalles(subservicio)")
 									md-icon remove
 									p {{subservicio.nombre}}
