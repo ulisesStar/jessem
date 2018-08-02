@@ -22,7 +22,6 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		agregarServicio(array){
 			array.forEach(n => this.items.push(n))
 			$scope.$digest()
-			console.log(self.servicios.items)
 			this.obtenerMasInfo(0);
 
 			$('.slider').slick({
@@ -49,7 +48,6 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		obtenerMasInfo(idx){
 			this.item = self.servicios.items[idx]
 			$scope.$digest()
-			console.log(self.servicios.item)
 			
 		}
 
@@ -65,7 +63,7 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			.then(() => $scope.$digest())
 
 			await Imagen.obtenerDesubservicios(subservicio.id)
-			.then(res =>{ self.subservicio.imagenes = res.data; console.log(self.subservicio)})
+			.then(res => self.subservicio.imagenes = res.data)
 			.then(() => $scope.$digest())
 
 			if(self.servicios.imagenes != [])
