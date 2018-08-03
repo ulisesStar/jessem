@@ -297,6 +297,8 @@ md-grid-list
 			.slider
 				width 100%
 				height 100%
+				.slick-list
+					height 340px !important
 				.servicio
 					display flex
 					flex-direction column
@@ -442,7 +444,7 @@ md-grid-list
 								font-weight 800
 								font-size 18px
 			.sliderSub-content
-				margin-top 5vh
+				margin-top 2vh
 				position relative
 				width 50%
 				height 30%
@@ -453,6 +455,8 @@ md-grid-list
 						&:before
 							color azul2
 					.imagen
+						width 23vw
+						height 25vh
 						img
 							width 100%
 							height 100%
@@ -579,7 +583,12 @@ md-grid-list
 			.slider
 				width 100%
 				height 100%
+				.slick-list
+					&:focus
+						outline 0px
 				.trabajador
+					&:focus
+						outline 0px
 					.contenedor
 						display flex
 						flex-direction row
@@ -623,8 +632,10 @@ md-grid-list
 									color white
 							.imagen
 								margin-top 3vh
-								width 25vw
+								width 23vw
 								height 50vh
+								@media mobile
+									width 37vw
 								img
 									width 100%
 									height 100%

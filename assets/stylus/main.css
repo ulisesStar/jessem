@@ -353,6 +353,9 @@ md-grid-list md-grid-tile {
   width: 100%;
   height: 100%;
 }
+.servicios-container .servicios-content .slider-content .slider .slick-list {
+  height: 340px !important;
+}
 .servicios-container .servicios-content .slider-content .slider .servicio {
   display: flex;
   flex-direction: column;
@@ -535,7 +538,7 @@ md-grid-list md-grid-tile {
   font-size: 18px;
 }
 .servicios-container .detalles-servicios .subservicios-detalles .sliderSub-content {
-  margin-top: 5vh;
+  margin-top: 2vh;
   position: relative;
   width: 50%;
   height: 30%;
@@ -547,6 +550,10 @@ md-grid-list md-grid-tile {
 .servicios-container .detalles-servicios .subservicios-detalles .sliderSub-content .algo .slick-prev:before,
 .servicios-container .detalles-servicios .subservicios-detalles .sliderSub-content .algo .slick-next:before {
   color: #0580ad;
+}
+.servicios-container .detalles-servicios .subservicios-detalles .sliderSub-content .algo .imagen {
+  width: 23vw;
+  height: 25vh;
 }
 .servicios-container .detalles-servicios .subservicios-detalles .sliderSub-content .algo .imagen img {
   width: 100%;
@@ -691,6 +698,12 @@ md-grid-list md-grid-tile {
   width: 100%;
   height: 100%;
 }
+.trabajadores-container .trabajadores-content .slider-content .slider .slick-list:focus {
+  outline: 0px;
+}
+.trabajadores-container .trabajadores-content .slider-content .slider .trabajador:focus {
+  outline: 0px;
+}
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor {
   display: flex;
   flex-direction: row;
@@ -749,8 +762,13 @@ md-grid-list md-grid-tile {
 }
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-der .imagen {
   margin-top: 3vh;
-  width: 25vw;
+  width: 23vw;
   height: 50vh;
+}
+@media (max-width: 1024px) {
+  .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-der .imagen {
+    width: 37vw;
+  }
 }
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-der .imagen img {
   width: 100%;
