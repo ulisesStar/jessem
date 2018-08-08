@@ -6,8 +6,8 @@ var sequelize = new Sequelize('jessem', 'root', 'qwertyuiop', {
     dialect: 'mysql',
     port: '3306',
     pool: {
-        max: 5,
-        min: 0,
+        max: 1,
+        min: 1,
         idle: 10000
     }
 });
