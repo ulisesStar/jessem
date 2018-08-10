@@ -2,7 +2,7 @@ mobile = "(max-width: 1024px)"
 azul2 = #0580ad
 .azul
 	background-color #0580ad !important
-	
+
 transition(duracion, delay)
 	-webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
 	transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
@@ -30,7 +30,6 @@ md-grid-list
 		background-size cover
 		background-position center
 
-	
 .nav
 	position fixed
 	width 100%
@@ -110,7 +109,7 @@ md-grid-list
 							color white
 							text-align center
 							margin 15px
-					
+
 .footer
 	.footer-content
 		display flex
@@ -139,7 +138,7 @@ md-grid-list
 				margin-top 20px
 				p
 					font-size 9px
-					
+
 		.forma-contactos
 			display flex
 			flex-direction row
@@ -153,7 +152,7 @@ md-grid-list
 				margin 0
 				margin-top 10px
 				font-size 11px
-				
+
 
 .background-home
 	background-image url('/img/intro.png')
@@ -177,6 +176,7 @@ md-grid-list
 		justify-content center
 		align-items center
 		.titulo
+			position absolute
 			width 100%
 			display flex
 			flex-direction column
@@ -189,11 +189,11 @@ md-grid-list
 				color white
 				@media mobile
 					font-size 32px
-			
 
-		
 
-//-CSS DE NOSOTROS	
+
+
+//-CSS DE NOSOTROS
 
 .background-nosotros
 	background-image url('/img/fondoC.png')
@@ -215,7 +215,6 @@ md-grid-list
 		width 70%
 		height 100%
 		img
-			width 100%
 			height 100%
 	.titulo-izq
 		position absolute
@@ -223,7 +222,7 @@ md-grid-list
 		left 30vw
 		@media mobile
 			left 31vw
-		h2 
+		h2
 			color white
 			font-size 12px
 			font-weight 100
@@ -248,26 +247,31 @@ md-grid-list
 			@media mobile
 				margin-top 20vh
 				width 100%
-			p 
+
+			h4
+				color white
+				font-size 18px
+			p
 				color white
 				font-size 16px
-				@media mobile 
+				@media mobile
 					font-size 14px
-				
+
 //-CSS DE SERVICIOS
 
 .background-servicios
-	
 	height 100%
 	width 100%
-	background-position center
+	background-position center center
+	background-size cover
+	background-repeat no-repeat
 	position absolute
 	top 0
 	img
 		width 100%
 		height 100%
 .cortina
-	
+
 	height 100%
 	width 100%
 	background-position center
@@ -281,27 +285,29 @@ md-grid-list
 	min-height 100vh
 	display flex
 	flex-direction row
+	justify-content center
 	.servicios-content
 		position relative
-		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
 		display flex
-		justify-content space-between
-		.slider-content
-			margin-top 17vh
+
+		.slider-container
 			width 49%
-			height 36%
+			height 100%
+			display flex
+			flex-direction column
+			justify-content center
 			@media mobile
 				height 45%
 			.slider
 				width 100%
-				height 100%
 				.slick-list
 					height 340px !important
 				.servicio
 					display flex
 					flex-direction column
+					justify-content flex-end
 					h1
 						text-align center
 						color white
@@ -324,11 +330,16 @@ md-grid-list
 					.subservicios-dentro
 						display flex
 						justify-content center
-						height 30px
+						.md-button
+							margin 0px
+							min-height 25px
 						md-list
 							md-list-item
 								min-height inherit !important
 								height 25px
+								&:hover
+									p
+										margin 0 20px
 								.md-list-item-text
 									md-icon
 										color white
@@ -336,35 +347,56 @@ md-grid-list
 										color white
 										font-weight 400
 										font-size 16px
+										line-height 16px
 										margin 0
+										transition(500ms, 0)
 									&:focus
 										outline 0px
-			.flechas
+			.navegacion
 				display flex
-				flex-direction row
-				justify-content space-around
+				justify-content center
 				align-items center
-				.prev
+				.cantidad
+					height 20px
+					width 50px
+					padding 5px
+					color white
+					font-size 11px
+				.linea-content
+					height 4px
+					width 100%
+					background-color rgba(255, 255, 255, .5)
+					.linea
+						height 4px
+						transition(500ms, 0)
+						background-color rgba(255, 255, 255, 1)
+				.flechas
+					display flex
+					flex-direction row
+					justify-content space-around
+					align-items center
+					margin 0 10px
 					.md-button
 						margin 0
+						min-width 40px
 						md-icon
-							color white
-						
-				.next
-					.md-button
-						margin 0
-						md-icon
+							transform scale(1.2)
 							color white
 		.subservicios-container
-			margin-top 17vh
+			width 100%
+			display flex
+			align-items center
+			justify-content flex-end
 			.subservicios-afuera
 				margin 0
-				height 5%
 				md-list
 					md-list-item
 						.md-list-item-text
-							margin 0
+							display flex
+							justify-content flex-end
+							width 100%
 							md-icon
+								margin 5px 0
 								color white
 							p
 								color white
@@ -376,9 +408,23 @@ md-grid-list
 		right 0
 		width 0%
 		height 100%
+		.cerrar
+			position absolute
+			left -23px
+			top 57px
+			background-color azul2
+			height 30px
+			min-height 30px
+			width 30px
+			md-icon
+				font-size 15px
+				min-height 15px
+				min-width 15px
+				height 15px
+				width 15px
 		.subservicios-detalles
 			height 90%
-			background-color rgba(255,255,255,0.7)
+			background-color rgba(255,255,255,0.9)
 			overflow-y hidden
 			display flex
 			flex-direction column
@@ -420,10 +466,10 @@ md-grid-list
 					text-align justify
 					padding 15px
 					margin 0
-					p 
+					p
 						font-size 14px
 						font-weight 100
-						
+
 			.elementos
 				display flex
 				flex-direction column
@@ -458,13 +504,12 @@ md-grid-list
 						width 23vw
 						height 25vh
 						img
-							width 100%
 							height 100%
 
 
 
 //-CSS DE PROYECTOS
-		
+
 .background-proyectos
 	background-image url('/img/fondoC.png')
 	background-repeat no-repeat
@@ -515,13 +560,12 @@ md-grid-list
 									color white
 	.contenedor-secundario
 		width 0%
-		height 100%	
+		height 100%
 		.imagen
 			position relative
 			width 100%
 			height 40%
 			img
-				width 100%
 				height 100%
 			.botonCerrar
 				position absolute
@@ -556,8 +600,8 @@ md-grid-list
 								color white
 								font-size 16px
 								font-weight 100
-		
-		
+
+
 //-CSS DE TRABAJADORES
 .background-trabajadores
 	background-image url('/img/fondoC.png')
@@ -576,10 +620,14 @@ md-grid-list
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
+		h1
+			margin-top 10vh
+			color white
+			font-size 30px
 		.slider-content
 			position relative
 			width 100%
-			height 80%
+			max-height 80%
 			.slider
 				width 100%
 				height 100%
@@ -596,16 +644,15 @@ md-grid-list
 							@media mobile
 								display none
 							width 50%
+							height 60%
 							display flex
-							flex-direction column
 							align-items center
-							h1
-								margin-top 10vh
-								color white
-								font-size 30px
+							justify-content center
 							.descripcion
 								text-align justify
 								width 80%
+
+
 								p
 									color white
 									font-size 16px
@@ -618,7 +665,6 @@ md-grid-list
 							@media mobile
 								width 100%
 							.titulo
-								margin-top 10vh
 								text-align right
 								display flex
 								flex-direction column
@@ -634,10 +680,11 @@ md-grid-list
 								margin-top 3vh
 								width 23vw
 								height 50vh
+								display flex
+								justify-content center
 								@media mobile
 									width 37vw
 								img
-									width 100%
 									height 100%
 
 //-CSS DE CONTACTO
@@ -710,7 +757,7 @@ md-grid-list
 										font-weight 400
 								.direccion
 									margin-top 2vh
-									width 77%			
+									width 77%
 									p
 										font-size 16px
 										font-weight 100
@@ -743,7 +790,7 @@ md-grid-list
 								margin 0
 								md-icon
 									color black
-								
+
 						.next
 							.md-button
 								margin 0

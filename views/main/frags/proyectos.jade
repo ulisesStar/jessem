@@ -12,7 +12,7 @@
 								p {{proyecto.nombre}}
 	.contenedor-secundario
 		.imagen
-			img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}")
+			img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}" ng-if="ctrl.proyectos.item.imagenes[0].imagen")
 			.botonCerrar(ng-show="!ctrl.muestra")
 				md-button.md-fab(ng-click="ctrl.proyectos.cerrar()")
 					md-icon clear

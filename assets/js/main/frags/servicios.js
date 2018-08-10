@@ -6,25 +6,55 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 	self.muestra = false;
 	self.muestra2 = true;
 
+
+	class objetivo_ {
+		constructor(arg) {
+			Object.entries(arg).forEach(n => this[n[0]] = n[1])
+			this.obtener()
+			console.log(this)
+		}
+		async obtener(){
+			await Item.obtenerDeSubservicios(this.id)
+			.then(res => this.elementos = res.data)
+
+
+			await Imagen.obtenerDesubservicios(this.id)
+			.then(res => this.imagenes = res.data)
+
+			await $scope.$digest()
+		}
+
+	}
+
 	class Servicios_{
 		constructor(){
 			this.items = [],
 			this.item = {},
+			this.idx = 0,
 			this.obtener()
 		}
-
+		mostrar(){
+			self.muestra = !self.muestra
+			self.muestra === true ? this.abrirDetalles(this.item.subservicios[0]) : this.cerrar()
+		}
 		obtener(){
 			Servicio.obtener()
 			.then(res => res.data.map(n => new Servicio_(n)))
 			.then(res => this.agregarServicio(res))
 		}
 
+		obtenerMasInfo(){
+			this.item = self.servicios.items[this.idx]
+			$scope.$digest()
+
+		}
+
 		agregarServicio(array){
 			array.forEach(n => this.items.push(n))
 			$scope.$digest()
-			this.obtenerMasInfo(0);
+			this.obtenerMasInfo();
 
-			$('.slider').slick({
+			$('.slider-content').slick({
 				infinite: true,
 				speed: 300,
 				slidesToShow: 1,
@@ -33,39 +63,29 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 				prevArrow: $('.prev'),
 				nextArrow: $('.next'),
 			})
-			$('.slider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+			$('.slider-content').on('afterChange', function(event, slick, currentSlide, nextSlide){
 				let elSlide = $(slick.$slides[currentSlide]);
-				let dataIndex = elSlide[0].dataset.slickIndex;
+				self.servicios.idx = Number(elSlide[0].dataset.slickIndex);
 				var detalles = ($('.detalles-servicios'))
 				TweenLite.to(detalles, .2, {width:'0%', height:'100%'})
 				this.item = {};
 				$scope.$digest()
-				self.servicios.obtenerMasInfo(dataIndex);
+				self.servicios.obtenerMasInfo()
+
 			});
 
 		}
 
-		obtenerMasInfo(idx){
-			this.item = self.servicios.items[idx]
-			$scope.$digest()
-			
-		}
+
 
 		async abrirDetalles(subservicio){
-			self.subservicio = subservicio;
-			self.subservicio.elementos = []
-			self.subservicio.imagenes = []
-			self.muestra2 = false;
-			var detalles = ($('.detalles-servicios'))
-			TweenLite.to(detalles, .3, {width:'50%', height:'100%'})
-			await Item.obtenerDeSubservicios(subservicio.id)
-			.then(res => self.subservicio.elementos = res.data)
-			.then(() => $scope.$digest())
 
-			await Imagen.obtenerDesubservicios(subservicio.id)
-			.then(res => self.subservicio.imagenes = res.data)
-			.then(() => $scope.$digest())
 
+
+			self.subservicio = new objetivo_(subservicio);
+
+			self.muestra = true
+			TweenLite.to($('.detalles-servicios'), .3, {width:'50%', height:'100%'})
 			if(self.servicios.imagenes != [])
 				$('.algo').slick({
 					infinite: true,
@@ -74,17 +94,20 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 					adaptiveHeight: true,
 					arrows: true
 				})
-			
+
 
 		}
 
 		cerrar(){
+			self.muestra2 = true
+			self.muestra = false
 			this.subservicios = {};
 			var detalles = ($('.detalles-servicios'))
 			TweenLite.to(detalles, .3, {width:'0%', height:'100%'})
 		}
 
 	}
+
 
 	self.servicios = new Servicios_();
 

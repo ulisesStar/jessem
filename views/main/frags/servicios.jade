@@ -1,49 +1,55 @@
-.background-servicios
-	img(src="{{ctrl.servicios.item.imagenes[0].imagen}}")
+.background-servicios(style="background-image : url({{ctrl.servicios.item.imagenes[0].imagen}})")
 .cortina
 .servicios-container
-	.servicios-content(layout="row")
-		.slider-content
-			.slider(layout="row" flex)
-				.servicio(ng-repeat='servicio in ctrl.servicios.items')
-					h1 {{servicio.nombre}}
-					md-button(ng-click="ctrl.muestra = !ctrl.muestra" )
-						md-icon remove
-						span(ng-show="!ctrl.muestra") Ver mas
-						span(ng-show="ctrl.muestra") Cerrar
-					.subservicios-dentro
-						md-list
-							md-list-item(ng-repeat="subservicio in ctrl.servicios.item.subservicios" ng-if="ctrl.muestra")
-								.md-list-item-text(layout="row" ng-click="ctrl.servicios.abrirDetalles(subservicio)")
-									md-icon remove
-									p {{subservicio.nombre}}
-			.flechas
-				.prev
-					md-button
-						md-icon keyboard_arrow_left
-				.next
-					md-button
-						md-icon keyboard_arrow_right
-		.subservicios-container(layout="column" ng-show="ctrl.muestra2")
-			.subservicios-afuera(ng-repeat="subservicio in ctrl.servicios.item.subservicios")
+	.servicios-content
+		
+		.slider-container
+			.slider
+				md-progress-circular(md-mode="indeterminate" ng-if="!ctrl.servicios.items.length > 0")
+				.slider-content
+					.servicio(ng-repeat='servicio in ctrl.servicios.items')
+						h1 {{servicio.nombre}}
+						md-button(ng-click="ctrl.servicios.mostrar()" )
+							md-icon remove
+							span(ng-show="!ctrl.muestra") Ver mas
+							span(ng-show="ctrl.muestra") Cerrar
+						.subservicios-dentro
+							md-list
+								md-list-item(ng-repeat="subservicio in ctrl.servicios.item.subservicios" ng-if="ctrl.muestra" ng-click="ctrl.servicios.abrirDetalles(subservicio)")
+									.md-list-item-text(layout="row")
+										md-icon remove
+										p {{subservicio.nombre}}
+				.navegacion
+					.cantidad {{ ctrl.servicios.idx + 1 }} / {{ ctrl.servicios.items.length }}
+					.linea-content
+						.linea(style="width : {{ ( ( (ctrl.servicios.idx + 1) / ctrl.servicios.items.length ) * 100)  }}%")
+					.flechas
+						md-button.prev
+							md-icon keyboard_arrow_left
+						md-button.next
+							md-icon keyboard_arrow_right
+		.subservicios-container(ng-if="!ctrl.muestra")
+			.subservicios-afuera
 				md-list
-					md-list-item
+					md-list-item(ng-click="ctrl.servicios.abrirDetalles(subservicio)" ng-repeat="subservicio in ctrl.servicios.item.subservicios")
 						.md-list-item-text(layout="row")
 							md-icon remove
 							p {{subservicio.nombre}}
-	.detalles-servicios(ng-show="!ctrl.muestra2")
+	.detalles-servicios
+		md-button.md-fab.cerrar(ng-click="ctrl.servicios.cerrar()" ng-if="ctrl.subservicio")
+			md-icon clear
 		.subservicios-detalles
 			.titulo-servicio
 				.div(layout="row")
 					h1 {{ctrl.servicios.item.nombre}}
 					span(flex)
-					md-button.md-fab(ng-click="ctrl.servicios.cerrar()")
-						md-icon clear
+					
 				.descripcion(ng-bind-html="ctrl.servicios.item.descripcion")
 			md-divider
 			.titulo-subservicio
 				h2 {{ctrl.subservicio.nombre}}
 				.descripcion(ng-bind-html="ctrl.subservicio.descripcion")
+				md-progress-circular(md-mode="indeterminate" ng-if="!ctrl.subservicio.elementos && !ctrl.subservicio.imagenes")
 			.elementos
 				md-list
 					md-list-item(ng-repeat="elemento in ctrl.subservicio.elementos")
