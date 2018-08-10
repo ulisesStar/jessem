@@ -1,26 +1,43 @@
 .background-proyectos
-.proyectos-container
-	.proyectos-content
-		h1 Proyectos
-		.contenedor-pindividual
-			.subcontenedor
-				.proyectos
-					md-virtual-repeat-container#vertical-container
-						.repeated-item(layout="row" md-virtual-repeat='proyecto in ctrl.proyectos.items' flex)
-							.texto(ng-click="ctrl.proyectos.mandarInfo(proyecto)")
+.proyectos
+	.proyectos-container
+		.proyectos-content
+			h1 Proyectos
+			.contenedor-pindividual
+				.subcontenedor
+					.proyectos
+						md-virtual-repeat-container#vertical-container
+							.repeated-item(layout="row" md-virtual-repeat='proyecto in ctrl.proyectos.items' flex)
+								.texto(ng-click="ctrl.proyectos.mandarInfo(proyecto)")
+									md-icon remove
+									p {{proyecto.nombre}}
+		.contenedor-secundario
+			.imagen
+				img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}" ng-if="ctrl.proyectos.item.imagenes[0].imagen")
+				.botonCerrar(ng-show="!ctrl.muestra")
+					md-button.md-fab(ng-click="ctrl.proyectos.cerrar()")
+						md-icon clear
+			.proyectos-info(ng-show="!ctrl.muestra")
+				.descripcion(ng-bind-html="ctrl.proyectos.item.descripcion")
+				.servicios(ng-repeat="servicio in ctrl.proyectos.item.servicios")
+					md-list
+						md-list-item
+							.md-list-item-text(layout="row")
 								md-icon remove
-								p {{proyecto.nombre}}
-	.contenedor-secundario
-		.imagen
-			img(src="{{ctrl.proyectos.item.imagenes[0].imagen}}" ng-if="ctrl.proyectos.item.imagenes[0].imagen")
-			.botonCerrar(ng-show="!ctrl.muestra")
-				md-button.md-fab(ng-click="ctrl.proyectos.cerrar()")
-					md-icon clear
-		.proyectos-info(ng-show="!ctrl.muestra")
-			.descripcion(ng-bind-html="ctrl.proyectos.item.descripcion")
-			.servicios(ng-repeat="servicio in ctrl.proyectos.item.servicios")
-				md-list
-					md-list-item
-						.md-list-item-text(layout="row")
-							md-icon remove
-							p {{servicio.nombre}}
+								p {{servicio.nombre}}
+	.clientes-container
+		.clientes
+			.cliente
+				img(src="img/clientes/pemex.jpg")
+			.cliente
+				img(src="img/clientes/pdvsa.jpg")
+			.cliente
+				img(src="img/clientes/tamaulipas.png")
+			.cliente
+				img(src="img/clientes/evya.png")
+			.cliente
+				img(src="img/clientes/veritas.png")
+			.cliente
+				img(src="img/clientes/upch.jpg")
+			.cliente
+				img(src="img/clientes/laventa.jpg")
