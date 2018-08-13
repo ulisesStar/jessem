@@ -56,7 +56,9 @@ app.config([
 		.state('trabajador', template('main', ['trabajador'], '/trabajador/:id', {'id': null}))
 
 		.state('nosotros', template('main', ['nosotros'], '/nosotros'))
-		
+
+		.state('clientes', template('main', ['clientes'], '/clientes'))
+
 		.state('contacto', template('main', ['contacto'], '/contacto'))
 
 	}

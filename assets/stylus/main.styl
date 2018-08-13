@@ -545,6 +545,11 @@ md-grid-list
 					.md-virtual-repeat-container
 						height 60%
 						.repeated-item
+							&:hover
+								background-color white
+								.texto
+									p
+										color azul2
 							.texto
 								display flex
 								flex-direction row
@@ -798,17 +803,40 @@ md-grid-list
 									color black
 
 .clientes-container
+	background-color azul2
 	display flex
 	justify-content center
-	margin 100px 0
+	align-items center
+	flex-direction column
+	height 100vh
+	padding-top 100px
+	h1
+		font-size 5vw
+		font-weight 800
+		margin 0
+		color white
+		@media mobile
+			font-size 32px
 	.clientes
 		width 80%
+		margin-top 50px
 		flex-direction row
 		display flex
 		justify-content space-between
-		.cliente
-			height 40px
-			width 40px
-			img
-				max-height 40px
-				max-width 40px
+		md-grid-tile
+			.figure
+				display flex
+				justify-content center
+				align-items center
+			.cliente
+				height 140px
+				width 140px
+				background-color white
+				display flex
+				justify-content center
+				align-items center
+				border-radius 400px
+				overflow hidden
+				img
+					max-height 100px
+					max-width 100px

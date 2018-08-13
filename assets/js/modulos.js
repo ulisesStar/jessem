@@ -11,8 +11,8 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
     $ocLazyLoadProvider.config({
         debug: true,
         modules: [
-			
-			template('main', 'home'),		
+
+			template('main', 'home'),
 			template('main', 'servicio'),
 			template('main', 'servicios'),
 			template('main', 'subservicios'),
@@ -23,6 +23,7 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 			template('main', 'trabajador'),
 			template('main', 'nosotros'),
 			template('main', 'contacto'),
+			template('main', 'clientes'),
 			template('admin', 'home'),
 			template('admin', 'servicios'),
 			template('admin', 'subservicios'),
@@ -33,6 +34,6 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 			template('admin', 'proyecto'),
 			template('admin', 'trabajador'),
         ]
-		
+
     });
 }]);

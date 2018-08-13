@@ -5,9 +5,9 @@
 			h1 Proyectos
 			.contenedor-pindividual
 				.subcontenedor
-					.proyectos
+					md-list.proyectos
 						md-virtual-repeat-container#vertical-container
-							.repeated-item(layout="row" md-virtual-repeat='proyecto in ctrl.proyectos.items' flex)
+							md-list-item.repeated-item(layout="row" md-virtual-repeat='proyecto in ctrl.proyectos.items' flex)
 								.texto(ng-click="ctrl.proyectos.mandarInfo(proyecto)")
 									md-icon remove
 									p {{proyecto.nombre}}
@@ -25,19 +25,4 @@
 							.md-list-item-text(layout="row")
 								md-icon remove
 								p {{servicio.nombre}}
-	.clientes-container
-		.clientes
-			.cliente
-				img(src="img/clientes/pemex.jpg")
-			.cliente
-				img(src="img/clientes/pdvsa.jpg")
-			.cliente
-				img(src="img/clientes/tamaulipas.png")
-			.cliente
-				img(src="img/clientes/evya.png")
-			.cliente
-				img(src="img/clientes/veritas.png")
-			.cliente
-				img(src="img/clientes/upch.jpg")
-			.cliente
-				img(src="img/clientes/laventa.jpg")
+	
