@@ -1,38 +1,38 @@
+var fs = require('fs');
 var mysql = require('mysql');
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('jessem', 'root', 'qwertyuiop', {
-    host: '35.231.165.172',
-    dialect: 'mysql',
-    port: '3306',
+var sequelize = new Sequelize('jessem', 'jessem', '#1q2w3e4r', {
+    host: 'jessem.database.windows.net',
+    dialect: 'mssql',
+    port: '1433',
+    logging : false,
     pool: {
-        max: 5,
-        min: 0,
-        idle: 20000,
-        acquire: 20000
+        min: 10,
+        max: 300,
+        idle: 30000,
+    },
+    dialectOptions: {
+        requestTimeout : 30000,
+        encrypt: true,
+        ssl: {
+            ca: fs.readFileSync('BaltimoreCyberTrustRoot.crt.pem')
+        }
     }
-});
+})
+//
+// sequelize.authenticate().complete(function(err) {
+//     if (err) {
+//         console.log('Unable to connect to the database:', err);
+//     } else {
+//         console.log('Connection has been established successfully.');
+//     }
+// })
 
-
-/*
-var sequelize = new Sequelize('icoaching', 'root', '1234', {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: '8889',
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-    }
-});
-
-*/
-
-/*
 sequelize.sync()
 .then(() =>  console.log('Connecion realizada'))
 .catch(err =>  console.log('No se puede conectar a la bd:', err))
-*/
+
 
 module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;
