@@ -11,7 +11,8 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		constructor(arg) {
 			Object.entries(arg).forEach(n => this[n[0]] = n[1])
 			this.obtener()
-			console.log(this)
+
+
 		}
 		async obtener(){
 			await Item.obtenerDeSubservicios(this.id)
@@ -20,8 +21,15 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 
 			await Imagen.obtenerDesubservicios(this.id)
 			.then(res => this.imagenes = res.data)
-
-			await $scope.$digest()
+			.then(() => $scope.$digest())
+			.then(() => $('.algo').slick({
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				adaptiveHeight: true,
+				arrows: true
+			}))
 		}
 
 	}
@@ -79,21 +87,10 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 
 
 		async abrirDetalles(subservicio){
-
-
 			console.log((!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  50 :  100)
-
 			self.subservicio = new objetivo_(subservicio);
 			self.muestra = true
 			TweenLite.to($('.detalles-servicios'), .3, {width:  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  '50%' :  '100%', height:'100%'})
-			if(self.servicios.imagenes != [])
-				$('.algo').slick({
-					infinite: true,
-					speed: 300,
-					slidesToShow: 1,
-					adaptiveHeight: true,
-					arrows: true
-				})
 
 
 		}
@@ -104,6 +101,7 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 			this.subservicios = {};
 			var detalles = ($('.detalles-servicios'))
 			TweenLite.to(detalles, .3, {width:'0%', height:'100%'})
+			$('.algo').slick('unslick')
 		}
 
 	}
