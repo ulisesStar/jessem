@@ -81,11 +81,11 @@ app.controller('serviciosCtrl', function($scope, $rootScope, $http, $mdDialog, m
 		async abrirDetalles(subservicio){
 
 
+			console.log((!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  50 :  100)
 
 			self.subservicio = new objetivo_(subservicio);
-
 			self.muestra = true
-			TweenLite.to($('.detalles-servicios'), .3, {width:'50%', height:'100%'})
+			TweenLite.to($('.detalles-servicios'), .3, {width:  (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ?  '50%' :  '100%', height:'100%'})
 			if(self.servicios.imagenes != [])
 				$('.algo').slick({
 					infinite: true,

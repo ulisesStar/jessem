@@ -291,7 +291,8 @@ md-grid-list
 		min-height 80vh
 		width 80vw
 		display flex
-
+		@media mobile
+			flex-direction column
 		.slider-container
 			width 49%
 			height 100%
@@ -299,7 +300,8 @@ md-grid-list
 			flex-direction column
 			justify-content center
 			@media mobile
-				height 45%
+				height inherit
+				width 100%
 			.slider
 				width 100%
 				.slick-list
@@ -401,6 +403,7 @@ md-grid-list
 							p
 								color white
 								font-weight 400
+								text-align end
 								font-size 18px
 								margin 0
 	.detalles-servicios
@@ -408,6 +411,8 @@ md-grid-list
 		right 0
 		width 0%
 		height 100%
+		@media mobile
+			font-size 50px
 		.cerrar
 			position absolute
 			left -23px
@@ -434,8 +439,11 @@ md-grid-list
 			width 100%
 			.titulo-servicio
 				margin-top 2vh
+				height 60px
+				width 100%
 				@media mobile
-					display none
+					h1
+						font-size 20px
 				h1
 					color azul2
 					font-size 40px
@@ -458,6 +466,11 @@ md-grid-list
 				width 100%
 			.titulo-subservicio
 				margin-top 1vh
+				height 20px
+				width 100%
+				@media mobile
+					h2
+						font-size 20px
 				h2
 					text-align center
 					margin 0

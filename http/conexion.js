@@ -16,7 +16,7 @@ var sequelize = new Sequelize('jessem', 'jessem', '#1q2w3e4r', {
         requestTimeout : 30000,
         encrypt: true,
         ssl: {
-            ca: fs.readFileSync('BaltimoreCyberTrustRoot.crt.pem')
+            ca: fs.readFileSync('ssl.crt.pem')
         }
     }
 })

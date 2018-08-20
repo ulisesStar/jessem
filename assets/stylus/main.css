@@ -344,6 +344,11 @@ md-grid-list md-grid-tile {
   width: 80vw;
   display: flex;
 }
+@media (max-width: 1024px) {
+  .servicios-container .servicios-content {
+    flex-direction: column;
+  }
+}
 .servicios-container .servicios-content .slider-container {
   width: 49%;
   height: 100%;
@@ -353,7 +358,8 @@ md-grid-list md-grid-tile {
 }
 @media (max-width: 1024px) {
   .servicios-container .servicios-content .slider-container {
-    height: 45%;
+    height: inherit;
+    width: 100%;
   }
 }
 .servicios-container .servicios-content .slider-container .slider {
@@ -487,6 +493,7 @@ md-grid-list md-grid-tile {
 .servicios-container .servicios-content .subservicios-container .subservicios-afuera md-list md-list-item .md-list-item-text p {
   color: #fff;
   font-weight: 400;
+  text-align: end;
   font-size: 18px;
   margin: 0;
 }
@@ -495,6 +502,11 @@ md-grid-list md-grid-tile {
   right: 0;
   width: 0%;
   height: 100%;
+}
+@media (max-width: 1024px) {
+  .servicios-container .detalles-servicios {
+    font-size: 50px;
+  }
 }
 .servicios-container .detalles-servicios .cerrar {
   position: absolute;
@@ -525,10 +537,12 @@ md-grid-list md-grid-tile {
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio {
   margin-top: 2vh;
+  height: 60px;
+  width: 100%;
 }
 @media (max-width: 1024px) {
-  .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio {
-    display: none;
+  .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio h1 {
+    font-size: 20px;
   }
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-servicio h1 {
@@ -559,6 +573,13 @@ md-grid-list md-grid-tile {
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-subservicio {
   margin-top: 1vh;
+  height: 20px;
+  width: 100%;
+}
+@media (max-width: 1024px) {
+  .servicios-container .detalles-servicios .subservicios-detalles .titulo-subservicio h2 {
+    font-size: 20px;
+  }
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-subservicio h2 {
   text-align: center;
