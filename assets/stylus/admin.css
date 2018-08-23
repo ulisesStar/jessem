@@ -102,7 +102,7 @@ md-grid-list md-grid-tile {
   width: 100%;
 }
 .servicio .DespuesEdicion .servicio-form .descripcion-container {
-  height: 50%;
+  min-height: 50%;
 }
 @media (max-width: 800px) {
   .servicio .DespuesEdicion .servicio-form .descripcion-container {
@@ -305,7 +305,7 @@ md-grid-list md-grid-tile {
   width: 100%;
 }
 .subservicio .DespuesEdicion .subservicio-form .descripcion-container {
-  height: 50%;
+  min-height: 50%;
 }
 @media (max-width: 800px) {
   .subservicio .DespuesEdicion .subservicio-form .descripcion-container {
@@ -508,7 +508,7 @@ md-grid-list md-grid-tile {
   width: 100%;
 }
 .proyecto .DespuesEdicion .proyecto-form .descripcion-container {
-  height: 50%;
+  min-height: 50%;
 }
 @media (max-width: 800px) {
   .proyecto .DespuesEdicion .proyecto-form .descripcion-container {
@@ -719,7 +719,7 @@ md-grid-list md-grid-tile {
   }
 }
 .trabajador .DespuesEdicion .trabajador-form .descripcion-container {
-  height: 50%;
+  min-height: 50%;
 }
 @media (max-width: 800px) {
   .trabajador .DespuesEdicion .trabajador-form .descripcion-container {
