@@ -2,8 +2,9 @@
 	.contacto-content
 		.seccion-izquierda
 			.mapa
-				ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options" flex)
-					ui-gmap-marker(coords="marker.coordenadas" idkey="$index" ng-repeat="marker in markers")
+				#map
+				//- ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options" flex)
+				//- 	ui-gmap-marker(coords="marker.coordenadas" idkey="$index" ng-repeat="marker in markers")
 		.seccion-derecha
 			.slider-content
 				.slider(layout="row" flex)

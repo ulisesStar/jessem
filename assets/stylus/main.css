@@ -447,7 +447,7 @@ md-grid-list md-grid-tile {
 .servicios-container .servicios-content .slider-container .navegacion .linea-content {
   height: 4px;
   width: 100%;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255,255,255,0.2);
 }
 .servicios-container .servicios-content .slider-container .navegacion .linea-content .linea {
   height: 4px;
@@ -573,7 +573,7 @@ md-grid-list md-grid-tile {
 }
 .servicios-container .detalles-servicios .subservicios-detalles .titulo-subservicio {
   margin-top: 1vh;
-  height: 20px;
+  height: 50px;
   width: 100%;
 }
 @media (max-width: 1024px) {
@@ -814,10 +814,11 @@ md-grid-list md-grid-tile {
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-izq .descripcion {
   text-align: justify;
   width: 80%;
+  color: #fff;
 }
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-izq .descripcion p {
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
 }
 .trabajadores-container .trabajadores-content .slider-content .slider .trabajador .contenedor .parte-der {
   width: 50%;
@@ -894,6 +895,9 @@ md-grid-list md-grid-tile {
 }
 .contacto-container .contacto-content .seccion-izquierda .mapa {
   padding: 10px;
+}
+.contacto-container .contacto-content .seccion-izquierda .mapa #map {
+  height: 60%;
 }
 .contacto-container .contacto-content .seccion-izquierda .mapa ui-gmap-google-map .angular-google-map-container {
   height: 60%;
