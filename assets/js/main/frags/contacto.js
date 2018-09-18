@@ -23,8 +23,8 @@ app.controller('contactoCtrl', function($scope, $rootScope, $http, $mdDialog, md
 			longitude: -96.1307968
 		},
 		{
-			latitude: 19.069905,
-			longitude: -96.076478
+			latitude: 19.0635872,
+			longitude: -96.0773641
 		}
 	].map(n => new google.maps.Marker({
 	   position: { lat: n.latitude, lng: n.longitude },
@@ -52,7 +52,7 @@ app.controller('contactoCtrl', function($scope, $rootScope, $http, $mdDialog, md
 			nombre:"Oficinas Alvarado",
 			arquitecto1: "Ing. Miguel Ángel Chavez Hernández",
 			arquitecto2: "Ing. Wendy Carrillo Olmos",
-			domicilio: "Calle Dalia #362 Fracc: El sendero, CP.95264, Alvarado,Veracruz",
+			domicilio: "Circuito Barcelona #105,Colonia Lomas del Sol , CP.95264, Alvarado,Veracruz",
 			tel1: "Tel:(297)690 15 42",
 			tel2: "Cel1: 229 422 50 99",
 			tel3: "Cel2: 899 122 70 50",
