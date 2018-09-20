@@ -10,6 +10,9 @@ md-grid-list md-grid-tile {
   background-size: cover;
   background-position: center;
 }
+.centro {
+  max-height: 119% !important;
+}
 .nav {
   position: fixed;
   width: 100%;
@@ -189,6 +192,11 @@ md-grid-list md-grid-tile {
   position: absolute;
   top: 0;
 }
+@media (max-width: 1024px) {
+  .background-home {
+    height: 119%;
+  }
+}
 .home-container {
   position: relative;
   min-height: 100vh;
@@ -231,6 +239,11 @@ md-grid-list md-grid-tile {
   background-position: center;
   position: absolute;
   top: 0;
+}
+@media (max-width: 1024px) {
+  .background-nosotros {
+    height: 119%;
+  }
 }
 .nosotros-container {
   position: relative;
@@ -342,6 +355,11 @@ md-grid-list md-grid-tile {
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
+}
+@media (max-width: 1024px) {
+  .background-servicios {
+    height: 119%;
+  }
 }
 .background-servicios img {
   width: 100%;
@@ -790,6 +808,11 @@ md-grid-list md-grid-tile {
   background-position: center;
   position: absolute;
   top: 0;
+}
+@media (max-width: 1024px) {
+  .background-trabajadores {
+    height: 119%;
+  }
 }
 .trabajadores-container {
   position: relative;
