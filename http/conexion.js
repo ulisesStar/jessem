@@ -2,24 +2,25 @@ var fs = require('fs');
 var mysql = require('mysql');
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('jessem', 'jessem', '#1q2w3e4r', {
-    host: 'jessem.database.windows.net',
-    dialect: 'mssql',
-    port: '1433',
-    logging : false,
-    pool: {
-        min: 10,
-        max: 300,
-        idle: 30000,
+
+
+var sequelize = new Sequelize('jessem', 'root', '1234', {
+    host: '108.59.84.10',
+    dialect: 'mysql',
+    define: {
+       charset: 'utf8',
+       collate: 'utf8_general_ci',
+       timestamps: true
     },
-    dialectOptions: {
-        requestTimeout : 30000,
-        encrypt: true,
-        ssl: {
-            ca: fs.readFileSync('ssl.crt.pem')
-        }
+    port: '3306',
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
     }
-})
+});
+
+
 //
 // sequelize.authenticate().complete(function(err) {
 //     if (err) {
